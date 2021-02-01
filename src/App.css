@@ -44,6 +44,7 @@ nav ul li a {
 }
 nav {
   background-color: var(--primary-color);
+  box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.55);
   padding: 10px 0px;
 }
 
@@ -105,7 +106,7 @@ nav {
     justify-content: center;
   }
 
-  .login-cat {
+  .login-register {
     margin-left: 20px;
   }
 

@@ -34,7 +34,7 @@ function Header() {
               <a href="/sale">Sale</a>
             </li>
           </ul>
-          <ul className="login-cat">
+          <ul className="login-register">
             <li>
               <a href="/register">
                 <i className="fa fa-user-plus" aria-hidden="true"></i> Register
