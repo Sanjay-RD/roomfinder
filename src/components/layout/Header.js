@@ -1,21 +1,23 @@
-import React,{useState} from "react";
-import logo from '../../images/logo.jpg'
+import React, { useState } from "react";
+import logo from "../../images/logo.jpg";
 
 function Header() {
-  const [toggle,setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-  const handleClick =()=>{
-    setToggle(!toggle)
-  }
+  const handleClick = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <nav>
       <div className="container">
-          <div className="logo">
-            <a href="/"><img src={logo}/></a>
-          </div>
+        <div className="logo">
+          <a href="/">
+            <img src={logo} alt="Company logo." />
+          </a>
+        </div>
         <div className="flex-1">
-          <ul className={toggle ? 'nav-menu active':'nav-menu'}>
+          <ul className={toggle ? "nav-menu active" : "nav-menu"}>
             <li>
               <a href="/">Home</a>
             </li>
@@ -47,8 +49,8 @@ function Header() {
             </li>
           </ul>
         </div>
-        <button className="toggle" onClick={handleClick} >
-          <i className={toggle ? 'fa fa-times' :'fa fa-bars'}></i>
+        <button className="toggle" onClick={handleClick}>
+          <i className={toggle ? "fa fa-times" : "fa fa-bars"}></i>
         </button>
       </div>
     </nav>
