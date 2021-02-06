@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <nav>
-      <div className="container">
+      <div className="header-container">
         <div className="logo">
           <a href="/">
             <img src={logo} alt="Company logo." />

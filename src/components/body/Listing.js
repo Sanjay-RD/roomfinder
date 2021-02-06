@@ -1,11 +1,19 @@
 import React from "react";
+import ListingItem from "./ListingItem";
 
-function Listing() {
+const Listing = ({ roomInfo }) => {
   return (
     <div>
-      <h1>Listing</h1>
+      <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
+        Latest Listing
+      </h2>
+      <div className="room-flex">
+        {roomInfo.map((item) => (
+          <ListingItem key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Listing;

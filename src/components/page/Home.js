@@ -2,11 +2,11 @@ import React from "react";
 import Listing from "../body/Listing";
 import Search from "../body/Search";
 
-function Home() {
+function Home({ roomInfo }) {
   return (
     <div className="grid-2">
       <Search />
-      <Listing />
+      <Listing roomInfo={roomInfo} />
     </div>
   );
 }

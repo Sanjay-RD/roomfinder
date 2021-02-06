@@ -2,6 +2,7 @@
 :root {
   --primary-color: #47856c;
   --black-color: #212020;
+  --border-color: #afabab;
 }
 
 * {
@@ -21,12 +22,17 @@ p {
 
 body {
   background-color: #f4f4f4;
-  /* overflow: hidden; */
+}
+
+.header-container {
+  /* max-width: 1070px; */
+  width: 80%;
+  margin: auto;
 }
 
 .container {
   /* max-width: 1070px; */
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 
@@ -107,7 +113,7 @@ nav {
 /* Searching */
 .search {
   width: 250px;
-  border: 1px solid #afabab;
+  border: 1px solid var(--border-color);
   padding: 15px 15px;
   background: #f5f5f5;
   border-radius: 5px;
@@ -163,6 +169,94 @@ input[type="submit"] {
 
 /* ----------- */
 
+/* Listing */
+.room-flex {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-columns: repeat(auto-fit, 264px); */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+/* -------Listing End------- */
+
+/* RoomItems */
+.box {
+  position: relative;
+  border: 1px solid var(--border-color);
+  width: 245px;
+  height: 420px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+
+span.price {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.content {
+  /* text-align: center; */
+  padding: 0px 15px;
+}
+
+.icon-color {
+  color: var(--primary-color);
+}
+
+.roomsection-header {
+  text-align: center;
+}
+
+.line-brake {
+  border: 1px solid #e2dede;
+  margin: 10px auto;
+}
+
+.roomsection-info {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 25px;
+  grid-row-gap: 10px;
+}
+
+p.small-size {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.owner-info {
+  display: inline-grid;
+  grid-row-gap: 10px;
+}
+
+button.more-button {
+  width: 100%;
+  padding: 7px 0px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+}
+
+.more-button a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ---------------- RoomItems End ---------- */
+
+/* For responsive screen */
 @media screen and (max-width: 960px) {
   .container {
     width: 90%;
@@ -186,6 +280,10 @@ input[type="submit"] {
 
   .login-register {
     margin-left: 20px;
+  }
+
+  .logo {
+    transform: translate(13px, 10%);
   }
 
   /* for side navbar */
@@ -273,4 +371,28 @@ input[type="submit"] {
     font-size: 15px;
   }
   /* -------------- */
+
+  /* Listing */
+  /* .room-flex {
+    grid-template-columns: 1fr;
+  } */
+  /* Listing End */
+}
+
+/* For mobile Screen */
+@media screen and (max-width: 320px) {
+  .logo img {
+    width: 25px;
+    height: 25px;
+  }
+  .logo {
+    transform: translate(4px, 18%);
+  }
+}
+
+/* For larger Device */
+@media screen and (max-width: 2168) {
+  .room-flex {
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  }
 }
