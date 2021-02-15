@@ -300,6 +300,27 @@ button.more-button {
 /* pagination end */
 
 /* ---------------- RoomItems End ---------- */
+
+/* footer */
+footer {
+  padding: 15px 0px;
+  background-color: var(--primary-color);
+}
+
+footer p {
+  color: #fff;
+}
+
+.text-footer {
+  font-weight: bold;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+/* footer end */
+
 /*  */
 /*  */
 /*  */

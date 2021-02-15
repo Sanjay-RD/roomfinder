@@ -7,6 +7,7 @@ import room1 from "./images/room1.jpg";
 import room2 from "./images/room2.jpg";
 import room3 from "./images/room3.jpg";
 import Moment from "react-moment";
+import Footer from "./components/layout/Footer";
 
 function App() {
   const [roomInfo, setRoomInfo] = useState([
@@ -292,6 +293,7 @@ function App() {
           paginate={paginate}
         />
       </div>
+      <Footer />
     </React.Fragment>
   );
 }
