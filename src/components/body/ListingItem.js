@@ -19,10 +19,10 @@ const ListingItem = ({ item }) => {
     // const range = Moment.range(dates);
     // setTime(dates);
     const moment = extendMoment(Moment);
-    const start = moment().format("YYYY-MM-DD");
+    const end = moment().format("YYYY-MM-DD");
     // const start = new Date();
     // console.log(start);
-    const end = moment(`${item.end}`, "YYYY-MM-DD");
+    const start = moment(`${item.start}`, "YYYY-MM-DD");
     // const end = moment("2021-2-7", "YYYY-MM-DD");
     // console.log(end);
     const range = moment.range(start, end);
