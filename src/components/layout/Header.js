@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.jpg";
+import logo from "./logo.jpg";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
-  const handleClick = () => {
-    setToggle(!toggle);
-  };
+  // const handleClick = () => {
+  //   setToggle(!toggle);
+  // };
 
   return (
     <nav>
       <div className="header-container">
-        <div className="logo">
-          <a href="/">
-            <img src={logo} alt="Company logo." />
-          </a>
-        </div>
         <div className="flex-1">
-          <ul className={toggle ? "nav-menu active" : "nav-menu"}>
+          {/* <ul className={toggle ? "nav-menu active" : "nav-menu"}>
             <li>
               <a href="/">Home</a>
             </li>
@@ -27,31 +23,38 @@ function Header() {
             <li>
               <a href="/list">Featured Listing</a>
             </li>
-          </ul>
+          </ul> */}
           <ul>
             <li>
-              <a href="/rent">Rent</a>
+              <div className="logo">
+                <Link to="/">
+                  <img src={logo} alt="Company logo." />
+                </Link>
+              </div>
             </li>
             <li>
-              <a href="/sale">Sale</a>
+              <Link to="/rent">For Rent</Link>
+            </li>
+            <li>
+              <Link to="/sale">For Sale</Link>
             </li>
           </ul>
           <ul className="login-register">
             <li>
-              <a href="/register">
+              <Link to="/register">
                 <i className="fa fa-user-plus" aria-hidden="true"></i> Register
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/login" className="login">
+              <Link to="/login" className="login">
                 <i className="fa fa-sign-in" aria-hidden="true"></i> Login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-        <button className="toggle" onClick={handleClick}>
+        {/* <button className="toggle" onClick={handleClick}>
           <i className={toggle ? "fa fa-times" : "fa fa-bars"}></i>
-        </button>
+        </button> */}
       </div>
     </nav>
   );

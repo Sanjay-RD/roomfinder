@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 import NumberFormat from "react-number-format";
-
 import Moment from "moment";
 import { extendMoment } from "moment-range";
+import { Link } from "react-router-dom";
 
 const ListingItem = ({ item }) => {
   const [time, setTime] = useState("");
   useEffect(() => {
     getDiffTime();
+    // eslint-disable-next-line
   }, []);
 
   const getDiffTime = () => {
@@ -27,7 +28,7 @@ const ListingItem = ({ item }) => {
     // console.log(end);
     const range = moment.range(start, end);
     let days = range.diff("days");
-    console.log(days);
+    // console.log(days);
     setTime(days);
   };
 
@@ -97,9 +98,9 @@ const ListingItem = ({ item }) => {
           </div>
         </div>
         <div className="line-brake"></div>
-        <button className="more-button">
-          <a href="/more/1">More Info</a>
-        </button>
+        <Link to={`/room/${item.id}`}>
+          <button className="more-button">More Info</button>
+        </Link>
       </div>
     </div>
   );
