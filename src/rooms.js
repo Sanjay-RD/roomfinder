@@ -13,6 +13,7 @@ const rooms = [
     sqft: 1200,
     garage: "Yes",
     photomain: "https://avatars.githubusercontent.com/u/1?v=4",
+    images: ["/images/room1.jpg", "/images/room2.jpg", "/images/room3.jpg"],
     start: "2021-2-13",
   },
   {
@@ -29,6 +30,14 @@ const rooms = [
     sqft: 1980,
     garage: "Yes",
     photomain: "/images/room1.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-11",
   },
   {
@@ -44,6 +53,14 @@ const rooms = [
     bathroom: 1,
     garage: "No",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-12",
   },
   {
@@ -59,6 +76,14 @@ const rooms = [
     bathroom: 1,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-13",
   },
   {
@@ -75,6 +100,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -90,6 +123,7 @@ const rooms = [
     sqft: 800,
     garage: "Yes",
     photomain: "/images/room3.jpg",
+    images: ["/images/room3.jpg", "/images/room1.jpg"],
     start: "2021-2-01",
   },
   {
@@ -106,6 +140,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -122,6 +164,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -138,6 +188,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -154,6 +212,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -170,6 +236,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -186,6 +260,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -202,6 +284,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -218,6 +308,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -234,6 +332,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
   {
@@ -250,6 +356,14 @@ const rooms = [
     sqft: 8800,
     garage: "Yes",
     photomain: "/images/room2.jpg",
+    images: [
+      "/images/room3.jpg",
+      "/images/room1.jpg",
+      "/images/room2.jpg",
+      "/images/room4.jpg",
+      "/images/room5.jpeg",
+      "/images/room6.jpg",
+    ],
     start: "2021-2-14",
   },
 ];

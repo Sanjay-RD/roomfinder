@@ -46,18 +46,9 @@ function App() {
               </React.Fragment>
             )}
           />
+        </div>
+        <div className="small-container">
           <Route path="/room/:id" component={RoomScreen} />
-          {/* <div className="grid-2">
-            <Search />
-            <div>
-              <Listing roomInfo={currentRooms} />
-              <Pagination
-                roomsPerPage={roomsPerPage}
-                totalRooms={rooms.length}
-                paginate={paginate}
-              />
-            </div>
-          </div> */}
         </div>
         <Footer />
       </React.Fragment>
