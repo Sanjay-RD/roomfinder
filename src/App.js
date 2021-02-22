@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/layout/Header";
 import Home from "./components/page/Home";
 import Footer from "./components/layout/Footer";
-import RoomScreen from "./components/body/RoomScreen";
+import RoomScreen from "./components/individualSection/RoomScreen";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 

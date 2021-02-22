@@ -3,6 +3,7 @@
   --primary-color: #47856c;
   --black-color: #212020;
   --border-color: #afabab;
+  --secondary-color: #fff;
 }
 
 * {
@@ -81,7 +82,7 @@ a {
 
 /*NAVBAR*/
 nav ul li a {
-  color: var(--black-color);
+  color: var(--secondary-color);
   font-size: 18px;
 }
 nav {
@@ -189,10 +190,12 @@ input[type="submit"]:hover {
 
 input[type="submit"] {
   cursor: pointer;
-  font-weight: bold;
+  /* font-weight: bold; */
   border: none;
   background: var(--primary-color);
   box-shadow: 2px 2px 6px -1px #333;
+  font-size: 18px;
+  color: var(--secondary-color);
 }
 
 /* ----------- */
@@ -480,6 +483,44 @@ img.hover-shadow {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* seller Details */
+.seller-details {
+  width: 200px;
+  height: 399px;
+}
+.seller-image img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.text-color {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+.seller-container {
+  border: 1px solid #ccc6c6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.seller-info {
+  padding: 5px;
+}
+button.inquiry-btn {
+  width: 100%;
+  padding: 8px 0px;
+  color: #fff;
+  font-weight: bold;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+button.inquiry-btn:hover {
+  box-shadow: 1px 1px 7px 0px rgba(71, 133, 108, 0.69);
+}
+/* seller Details End */
 
 /* lightbox End */
 

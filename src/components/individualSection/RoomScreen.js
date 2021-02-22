@@ -6,6 +6,8 @@ import MainImage from "../lightBox2/MainImage";
 import BackgroundImage from "../lightBox2/BackgroundImage";
 import ImageListing from "../lightBox2/ImageListing";
 
+import profile from "./profile.jpg";
+
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
   const [image, setImage] = useState("");
@@ -40,8 +42,30 @@ const RoomScreen = ({ match }) => {
             <BackgroundImage image={image} />
           </div>
         </div>
-        <div>
-          <h2>Seller Details</h2>
+        <div className="seller-details">
+          <div className="seller-container">
+            <div className="seller-image">
+              <img src={profile} alt="" />
+              <h4 style={{ textAlign: "center" }}>Owner Details</h4>
+            </div>
+            <div className="seller-info">
+              <h4>
+                Name: <br />
+                <span className="text-color">{room.owner}</span>
+              </h4>
+              <h4>
+                Email: <br />
+                <span className="text-color">{room.email}</span>
+              </h4>
+              <h4>
+                Address: <br />
+                <span className="text-color">
+                  {room.city},{room.address}
+                </span>
+              </h4>
+            </div>
+          </div>
+          <button className="inquiry-btn">Make An Inquiry</button>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ const rooms = [
     title: "2 room with 1 kitchen",
     address: "kharibot ktm",
     city: "kathmandu",
+    email: "rishidevsanjay9@gmail.com",
     description:
       "2 bedroom with 1 kitchen and 1 bathroom located in kharibot kumarigal kathmandu",
     price: 10000,
@@ -22,6 +23,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -46,6 +48,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -69,6 +72,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 8000,
@@ -92,6 +96,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -116,6 +121,7 @@ const rooms = [
     title: "1 room",
     address: "suryabinyak",
     city: "bhaktaput",
+    email: "amit@gmail.com",
     description: "1 room near suryabinayk chok",
     price: 3000,
     bedroom: 1,
@@ -132,6 +138,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -156,6 +163,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -180,6 +188,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -204,6 +213,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -228,6 +238,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -252,6 +263,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -276,6 +288,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -300,6 +313,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -324,6 +338,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
@@ -348,6 +363,7 @@ const rooms = [
     title: "1 room with 1 kitchen",
     address: "chabhail",
     city: "kathmandu",
+    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 5000,
