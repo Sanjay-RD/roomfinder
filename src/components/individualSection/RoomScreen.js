@@ -7,6 +7,7 @@ import BackgroundImage from "../lightBox2/BackgroundImage";
 import ImageListing from "../lightBox2/ImageListing";
 
 import profile from "./profile.jpg";
+import InfoListing from "./InfoListing";
 
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
@@ -24,6 +25,7 @@ const RoomScreen = ({ match }) => {
   };
 
   const room = rooms.find((room) => room.id === parseInt(match.params.id));
+  console.log(room);
   return (
     <div style={{ marginBottom: "20px" }}>
       <Link to="/">
@@ -41,6 +43,31 @@ const RoomScreen = ({ match }) => {
           >
             <BackgroundImage image={image} />
           </div>
+          {/* Room Info Component */}
+          <InfoListing room={room} />
+          <div style={scamsNotice}>
+            <h3
+              style={{
+                textAlign: "center",
+                marginBottom: "10px",
+                color: "red",
+              }}
+            >
+              <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>{" "}
+              Be safe. Beware of fraud & scams.
+            </h3>
+            <p>
+              chaiyo.com is NOT involved in transaction of any goods/services
+              listed in the website. It is only platform to share information.
+              You are directly contacting the person who has posted the
+              advertisement and you agree not to hold chaiyo.com responsible for
+              their act in any circumstances. <br /> We strongly encourage you
+              to take necessary precaution. Avoid advance payment, check goods
+              before purchasing, instead of cash use mobile wallets (IME Pay,
+              Esewa, Khalti, Connect Ips, etc) or bank transfer for payments.
+              For more read Safety Tips
+            </p>
+          </div>
         </div>
         <div className="seller-details">
           <div className="seller-container">
@@ -52,6 +79,10 @@ const RoomScreen = ({ match }) => {
               <h4>
                 Name: <br />
                 <span className="text-color">{room.owner}</span>
+              </h4>
+              <h4>
+                Mobile Phone: <br />
+                <span className="text-color">{room.contact}</span>
               </h4>
               <h4>
                 Email: <br />
@@ -70,6 +101,13 @@ const RoomScreen = ({ match }) => {
       </div>
     </div>
   );
+};
+
+const scamsNotice = {
+  border: "1px solid #ccc6c6",
+  padding: "10px",
+  borderRadius: "2px",
+  marginTop: "10px",
 };
 
 export default RoomScreen;
