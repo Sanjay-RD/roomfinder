@@ -34,7 +34,6 @@ const InfoListing = ({ room }) => {
           </h4>
           <h4>{room.garage}</h4>
         </div>
-        <div className="line-brake"></div>
       </div>
       {/* second list */}
       <div>
@@ -54,7 +53,7 @@ const InfoListing = ({ room }) => {
                 <i className="fa fa-th-large" aria-hidden="true"></i> Square
                 Feet:
               </h4>
-              <h4>Rs.{room.sqft}</h4>
+              <h4>{room.sqft}</h4>
             </div>
             <div className="line-brake"></div>
           </div>
@@ -72,7 +71,6 @@ const InfoListing = ({ room }) => {
           </h4>
           <h4>{room.owner}</h4>
         </div>
-        <div className="line-brake"></div>
       </div>
     </div>
   );

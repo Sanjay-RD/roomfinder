@@ -76,19 +76,19 @@ const RoomScreen = ({ match }) => {
               <h4 style={{ textAlign: "center" }}>Owner Details</h4>
             </div>
             <div className="seller-info">
-              <h4>
+              <h4 style={margin}>
                 Name: <br />
                 <span className="text-color">{room.owner}</span>
               </h4>
-              <h4>
+              <h4 style={margin}>
                 Mobile Phone: <br />
                 <span className="text-color">{room.contact}</span>
               </h4>
-              <h4>
+              <h4 style={margin}>
                 Email: <br />
                 <span className="text-color">{room.email}</span>
               </h4>
-              <h4>
+              <h4 style={margin}>
                 Address: <br />
                 <span className="text-color">
                   {room.city},{room.address}
@@ -107,7 +107,12 @@ const scamsNotice = {
   border: "1px solid #ccc6c6",
   padding: "10px",
   borderRadius: "2px",
-  marginTop: "10px",
+  marginTop: "30px",
+  marginButton: "30px",
+};
+
+const margin = {
+  marginBottom: "7px",
 };
 
 export default RoomScreen;

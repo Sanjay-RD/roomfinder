@@ -486,7 +486,8 @@ img.hover-shadow {
 
 /* seller Details */
 .seller-details {
-  width: 200px;
+  /* width: 200px; */
+  width: 65%;
   height: 399px;
 }
 .seller-image img {
@@ -496,7 +497,7 @@ img.hover-shadow {
 }
 .text-color {
   color: var(--primary-color);
-  font-size: 14px;
+  font-size: 16px;
 }
 .seller-container {
   border: 1px solid #ccc6c6;
