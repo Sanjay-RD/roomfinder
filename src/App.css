@@ -4,6 +4,7 @@
   --black-color: #212020;
   --border-color: #afabab;
   --secondary-color: #fff;
+  --border-light-color: #e0dbdb;
 }
 
 * {
@@ -166,7 +167,7 @@ p.search-instruction {
   text-align: center;
 }
 
-.form-control {
+.search-form-control {
   padding: 8px 10px;
   border-radius: 5px;
   outline: none;
@@ -174,7 +175,7 @@ p.search-instruction {
   font-size: 16px;
 }
 
-input[type="text"],
+.input-text,
 select {
   margin-bottom: 10px;
   border: 1px solid var(--primary-color);
@@ -182,7 +183,7 @@ select {
   color: #757575;
 }
 
-input[type="text"]:focus,
+.input-text:focus,
 select:focus,
 input[type="submit"]:hover {
   box-shadow: 2px 2px 6px -1px var(--primary-color);
@@ -488,7 +489,8 @@ img.hover-shadow {
 .seller-details {
   /* width: 200px; */
   width: 65%;
-  height: 399px;
+  /* height: 499px; */
+  /* height: 50%; */
 }
 .seller-image img {
   width: 100%;
@@ -520,6 +522,70 @@ button.inquiry-btn {
 }
 button.inquiry-btn:hover {
   box-shadow: 1px 1px 7px 0px rgba(71, 133, 108, 0.69);
+}
+
+/* inquiry container */
+.inquiry-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  justify-content: center;
+}
+.inquiry-box {
+  margin-top: 30px;
+  position: absolute;
+  width: 350px;
+  /* height: 500px; */
+  animation: fadein 1s;
+  background-color: #fff;
+}
+.inquiry-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light-color);
+  padding: 10px;
+}
+.inquiry-close {
+  color: var(--border-color);
+  cursor: pointer;
+}
+.inquiry-content {
+  padding: 20px 10px;
+}
+.form-group:not(:last-child) {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-control {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border-light-color);
+  border-radius: 3px;
+}
+.form-control:focus {
+  outline: none;
+  border: 1px solid var(--black-color);
+  box-shadow: 2px 2px 2px 0px #797979;
+}
+.button {
+  width: 100%;
+  padding: 7px 0px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
 }
 /* seller Details End */
 

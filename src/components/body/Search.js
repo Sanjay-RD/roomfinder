@@ -21,10 +21,14 @@ function Search() {
           <input
             type="text"
             placeholder="Keyword (garage,room,address,etc)"
-            className="form-control"
+            className="search-form-control input-text"
           />
-          <input type="text" placeholder="Address" className="form-control" />
-          <select name="rooms" className="form-control">
+          <input
+            type="text"
+            placeholder="Address"
+            className="search-form-control input-text"
+          />
+          <select name="rooms" className="search-form-control">
             <option value="select rooms" className="placeholder-color">
               Select Rooms
             </option>
@@ -34,7 +38,7 @@ function Search() {
             <option value="4">4</option>
           </select>
 
-          <select name="bedrooms" className="form-control">
+          <select name="bedrooms" className="search-form-control">
             <option value="Bedrooms" className="placeholder-color">
               Bedrooms
             </option>
@@ -45,7 +49,7 @@ function Search() {
           <input
             type="submit"
             value="Submit"
-            className="form-control"
+            className="search-form-control"
             onClick={handleClick}
           />
         </form>

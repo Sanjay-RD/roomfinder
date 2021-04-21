@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ImageListing = ({ images, onClick }) => {
-  console.log(images);
+  // console.log(images);
   return (
     <div className="flex">
       {images.map((image) => (

@@ -43,7 +43,9 @@ const ListingItem = ({ item }) => {
             prefix={"Rs."}
           />
         </span>
-        <img src={item.photomain} alt="mainimage" className="mainImage" />
+        <Link to={`/room/${item.id}`}>
+          <img src={item.photomain} alt="mainimage" className="mainImage" />
+        </Link>
       </div>
       <div className="content">
         <div className="roomsection-header">

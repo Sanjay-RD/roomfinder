@@ -8,10 +8,12 @@ import ImageListing from "../lightBox2/ImageListing";
 
 import profile from "./profile.jpg";
 import InfoListing from "./InfoListing";
+import Inquiry from "../Inquiry";
 
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
   const [image, setImage] = useState("");
+  const [inquiry, setInquiry] = useState(false);
 
   const onClick = (e) => {
     console.log(e);
@@ -24,8 +26,16 @@ const RoomScreen = ({ match }) => {
     setClick(false);
   };
 
+  const handleInquire = () => {
+    setInquiry(true);
+  };
+
+  const onCloseInquiry = () => {
+    setInquiry(false);
+  };
+
   const room = rooms.find((room) => room.id === parseInt(match.params.id));
-  console.log(room);
+  // console.log(room);
   return (
     <div style={{ marginBottom: "20px" }}>
       <Link to="/">
@@ -96,7 +106,10 @@ const RoomScreen = ({ match }) => {
               </h4>
             </div>
           </div>
-          <button className="inquiry-btn">Make An Inquiry</button>
+          <button className="inquiry-btn" onClick={handleInquire}>
+            Make An Inquiry
+          </button>
+          {inquiry && <Inquiry onClose={onCloseInquiry} />}
         </div>
       </div>
     </div>

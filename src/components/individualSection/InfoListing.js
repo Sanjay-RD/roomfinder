@@ -60,7 +60,7 @@ const InfoListing = ({ room }) => {
         )}
         <div style={flexContainer}>
           <h4>
-            <i class="fa fa-clock-o" aria-hidden="true"></i> Listing Date:
+            <i className="fa fa-clock-o" aria-hidden="true"></i> Listing Date:
           </h4>
           <h4>{room.start}</h4>
         </div>
