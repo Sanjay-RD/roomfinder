@@ -8,6 +8,7 @@ import RoomScreen from "./components/individualSection/RoomScreen";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import roomInfo from "./rooms";
+import Register from "./components/page/Register";
 
 function App() {
   const [rooms, setRoom] = useState([]);
@@ -50,6 +51,7 @@ function App() {
         <div className="small-container">
           <Route path="/room/:id" component={RoomScreen} />
         </div>
+        <Route path="/account/register" component={Register} />
         <Footer />
       </React.Fragment>
     </Router>

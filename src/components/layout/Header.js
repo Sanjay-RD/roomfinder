@@ -41,7 +41,7 @@ function Header() {
           </ul>
           <ul className="login-register">
             <li>
-              <Link to="/register">
+              <Link to="/account/register">
                 <i className="fa fa-user-plus" aria-hidden="true"></i> Register
               </Link>
             </li>
