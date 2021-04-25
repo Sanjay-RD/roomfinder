@@ -49,7 +49,7 @@ function Search() {
           <input
             type="submit"
             value="Submit"
-            className="search-form-control"
+            className="search-form-control search-button"
             onClick={handleClick}
           />
         </form>
