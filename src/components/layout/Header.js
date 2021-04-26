@@ -46,7 +46,7 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/login" className="login">
+              <Link to="/account/login" className="login">
                 <i className="fa fa-sign-in" aria-hidden="true"></i> Login
               </Link>
             </li>

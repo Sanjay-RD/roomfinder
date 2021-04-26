@@ -4,11 +4,12 @@ import Header from "./components/layout/Header";
 import Home from "./components/page/Home";
 import Footer from "./components/layout/Footer";
 import RoomScreen from "./components/individualSection/RoomScreen";
+import Register from "./components/page/Register";
+import Login from "./components/page/Login";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import roomInfo from "./rooms";
-import Register from "./components/page/Register";
 
 function App() {
   const [rooms, setRoom] = useState([]);
@@ -52,6 +53,7 @@ function App() {
           <Route path="/room/:id" component={RoomScreen} />
         </div>
         <Route path="/account/register" component={Register} />
+        <Route path="/account/login" component={Login} />
         <Footer />
       </React.Fragment>
     </Router>

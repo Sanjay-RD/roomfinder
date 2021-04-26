@@ -41,7 +41,7 @@ const Register = () => {
         <div className="form-group">
           <label>Username</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             name="usename"
             value={username}
