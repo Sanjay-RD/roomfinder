@@ -10,6 +10,7 @@ import Login from "./components/page/Login";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import roomInfo from "./rooms";
+import Dashboard from "./components/page/Dashboard";
 
 function App() {
   const [rooms, setRoom] = useState([]);
@@ -54,6 +55,7 @@ function App() {
         </div>
         <Route path="/account/register" component={Register} />
         <Route path="/account/login" component={Login} />
+        <Route path="/account/dashboard" component={Dashboard} />
         <Footer />
       </React.Fragment>
     </Router>
