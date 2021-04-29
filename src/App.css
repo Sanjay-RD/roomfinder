@@ -216,7 +216,7 @@ input[type="submit"]:hover {
   position: relative;
   border: 1px solid var(--border-color);
   /* width: 245px; */
-  height: 420px;
+  /* height: 420px; */
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -283,6 +283,7 @@ button.more-button {
   color: #fff;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /* button.more-button:focus {
@@ -601,6 +602,8 @@ button.inquiry-btn:hover {
   border-radius: 5px;
 }
 .register-header {
+  display: flex;
+  align-items: center;
   background-color: var(--primary-color);
   padding: 10px 20px;
   color: #fff;
@@ -660,6 +663,54 @@ button.inquiry-btn:hover {
 /* user dashboard end */
 
 /* lightbox End */
+
+/* sales */
+.sales-container {
+  width: 80%;
+  margin: auto;
+}
+input.sales-form-control {
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+input.sales-form-control.file {
+  border: none;
+}
+textarea.sales-form-control.textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+input.sales-form-control:focus,
+textarea.sales-form-control.textarea {
+  outline: none;
+}
+.sales-form-group {
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr;
+  border-bottom: 1px solid var(--border-light-color);
+  padding: 10px;
+}
+input.sales-form-control.price {
+  width: 110px;
+}
+.sales-form-control.bedrooms,
+.bathrooms,
+.sales-form-control.garage {
+  width: 70px;
+}
+input.createroom-save-button {
+  margin-top: 15px;
+  padding: 7px 15px;
+  cursor: pointer;
+  background: #4d5f88;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+/* sales end */
 
 /*  */
 /*  */
@@ -869,6 +920,15 @@ button.inquiry-btn:hover {
     width: 90%;
   }
   /* user Dashboard end*/
+  /* sales */
+  .sales-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .sales-form-group label {
+    margin-bottom: 10px;
+  }
+  /* sales End */
 }
 
 @media screen and (max-width: 600px) {

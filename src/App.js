@@ -6,6 +6,7 @@ import Footer from "./components/layout/Footer";
 import RoomScreen from "./components/individualSection/RoomScreen";
 import Register from "./components/page/Register";
 import Login from "./components/page/Login";
+import Sale from "./components/page/Sale";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/account/register" component={Register} />
         <Route path="/account/login" component={Login} />
         <Route path="/account/dashboard" component={Dashboard} />
+        <Route path="/sale" component={Sale} />
         <Footer />
       </React.Fragment>
     </Router>
