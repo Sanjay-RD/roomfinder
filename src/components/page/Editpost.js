@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Sale = () => {
+const Editpost = () => {
   const [ownername, setOwnername] = useState("");
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -24,10 +24,9 @@ const Sale = () => {
     e.preventDefault();
     console.log("object");
   };
-
   return (
     <div className="sales-container">
-      <h1 style={{ marginBottom: "20px" }}>Create Room for Sale</h1>
+      <h1 style={{ marginBottom: "20px" }}>Edit Post</h1>
       <form onSubmit={handleSubmit}>
         <div className="sales-form-group">
           <label>Owner Name</label>
@@ -197,4 +196,4 @@ const Sale = () => {
   );
 };
 
-export default Sale;
+export default Editpost;

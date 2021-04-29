@@ -616,6 +616,9 @@ button.inquiry-btn:hover {
 /* register user end */
 
 /* user dashboard */
+.room-listing {
+  margin: 30px 0px;
+}
 .dashboard img {
   margin-top: -20px;
   width: 100%;
@@ -645,8 +648,11 @@ button.inquiry-btn:hover {
 .user-info {
   margin: 25px 0px;
 }
-.title {
+.user-info .title {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .room-listing ul {
   list-style: none;
@@ -659,6 +665,7 @@ button.inquiry-btn:hover {
 .view-listing {
   background: var(--border-light-color);
   padding: 5px 10px;
+  border-radius: 3px;
 }
 /* user dashboard end */
 

@@ -5,6 +5,7 @@ const Register = () => {
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
@@ -56,6 +57,16 @@ const Register = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Phone Number:</label>
+          <input
+            type="phone"
+            className="form-control"
+            name="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
         <div className="form-group">

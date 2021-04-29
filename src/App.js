@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import roomInfo from "./rooms";
 import Dashboard from "./components/page/Dashboard";
+import Editpost from "./components/page/Editpost";
 
 function App() {
   const [rooms, setRoom] = useState([]);
@@ -58,6 +59,7 @@ function App() {
         <Route path="/account/login" component={Login} />
         <Route path="/account/dashboard" component={Dashboard} />
         <Route path="/sale" component={Sale} />
+        <Route path="/edit/room/:id" component={Editpost} />
         <Footer />
       </React.Fragment>
     </Router>

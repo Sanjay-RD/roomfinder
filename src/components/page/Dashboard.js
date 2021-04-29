@@ -20,10 +20,59 @@ const Dashboard = () => {
         </div>
         <div className="user-info">
           <div className="title">
-            <h1>Welcome Sanjay</h1>
-            <p>Here are the room listing that you have inquired about</p>
+            <div>
+              <h1>Welcome Sanjay</h1>
+              <p>
+                Here are the room listing that you have created and inquired
+                about
+              </p>
+            </div>
+            <div>
+              <div className="view-listing">
+                <Link to="/profile/edit/2" style={{ color: "red" }}>
+                  Edit Profile
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="room-listing">
+            <h2>Room Details</h2>
+            <ul>
+              <li>#</li>
+              <li>Property</li>
+              <li></li>
+            </ul>
+            <ul>
+              <li>4</li>
+              <li>26 street 2 room available</li>
+              <li>
+                <div className="view-listing">
+                  <Link to="/room/2">View Listing</Link>
+                </div>
+              </li>
+              <li>
+                <div className="view-listing">
+                  <Link to="/edit/room/2">Edit Post</Link>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>4</li>
+              <li>26 street 2 room available</li>
+              <li>
+                <div className="view-listing">
+                  <Link to="/room/2">View Listing</Link>
+                </div>
+              </li>
+              <li>
+                <div className="view-listing">
+                  <Link to="/edit/room/2">Edit Post</Link>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="room-listing">
+            <h2>Enquiry Details</h2>
             <ul>
               <li>#</li>
               <li>Property</li>
