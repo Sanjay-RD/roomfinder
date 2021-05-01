@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import rooms from "../../rooms";
+import rooms from "../rooms";
 import { Link } from "react-router-dom";
 
-import MainImage from "../lightBox2/MainImage";
-import BackgroundImage from "../lightBox2/BackgroundImage";
-import ImageListing from "../lightBox2/ImageListing";
+import MainImage from "../components/lightBox/MainImage";
+import BackgroundImage from "../components/lightBox/BackgroundImage";
+import ImageListing from "../components/lightBox/ImageListing";
 
-import profile from "./profile.jpg";
-import InfoListing from "./InfoListing";
-import Inquiry from "../Inquiry";
-import Messagebox from "../Messagebox";
+import profile from "../components/profile.jpg";
+import RoomInfo from "../components/RoomInfo";
+import Inquiry from "../components/Inquiry";
+import Messagebox from "../components/Messagebox";
 
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
@@ -70,7 +70,7 @@ const RoomScreen = ({ match }) => {
             <BackgroundImage image={image} />
           </div>
           {/* Room Info Component */}
-          <InfoListing room={room} />
+          <RoomInfo room={room} />
           <div style={scamsNotice}>
             <h3
               style={{

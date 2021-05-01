@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Admindashboard = () => {
+const AdminScreen = () => {
   return (
     <div className="dashboard">
       <div className="showcase">
@@ -246,4 +246,4 @@ const spanColor = {
   color: "#5a5555",
 };
 
-export default Admindashboard;
+export default AdminScreen;

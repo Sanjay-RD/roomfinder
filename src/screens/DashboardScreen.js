@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+const DashboardScreen = () => {
   return (
     // <div className="dashboard">
     //   <div className="showcase">
@@ -213,4 +213,4 @@ const spanColor = {
   color: "#5a5555",
 };
 
-export default Dashboard;
+export default DashboardScreen;

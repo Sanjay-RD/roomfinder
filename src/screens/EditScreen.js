@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Editpost = () => {
+const EditScreen = () => {
   const [ownername, setOwnername] = useState("");
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -196,4 +196,4 @@ const Editpost = () => {
   );
 };
 
-export default Editpost;
+export default EditScreen;

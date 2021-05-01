@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const AdminLoginScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,7 +10,7 @@ const Login = () => {
   return (
     <div className="register-form">
       <div className="register-header">
-        <i className="fa fa-sign-in" aria-hidden="true"></i> <h2>Login</h2>
+        <i className="fa fa-sign-in" aria-hidden="true"></i> <h2>Admin Area</h2>
       </div>
       <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -42,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLoginScreen;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Sale = () => {
+const CreateRoomScreen = () => {
   const [ownername, setOwnername] = useState("");
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -197,4 +197,4 @@ const Sale = () => {
   );
 };
 
-export default Sale;
+export default CreateRoomScreen;

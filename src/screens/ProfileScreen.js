@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Register = () => {
+const ProfileScreen = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
@@ -9,16 +9,14 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    console.log("object");
   };
   return (
-    <div className="register-form">
-      <div className="register-header">
-        <i className="fa fa-user-plus" aria-hidden="true"></i> <h2>Register</h2>
-      </div>
-      <form onSubmit={onSubmit}>
+    <div className="small-container">
+      <h1 style={{ marginBottom: "20px" }}>Edit Profile</h1>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>First Name</label>
           <input
@@ -91,11 +89,11 @@ const Register = () => {
         </div>
 
         <div>
-          <input type="submit" value="Register" className="button" />
+          <input type="submit" value="Edit" className="button" />
         </div>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default ProfileScreen;

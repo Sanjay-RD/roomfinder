@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./components/layout/Header";
-import Home from "./components/page/Home";
-import Footer from "./components/layout/Footer";
-import RoomScreen from "./components/individualSection/RoomScreen";
-import Register from "./components/page/Register";
-import Login from "./components/page/Login";
-import Sale from "./components/page/Sale";
-import Dashboard from "./components/page/Dashboard";
-import Editpost from "./components/page/Editpost";
-import Editprofile from "./components/page/Editprofile";
-import Adminlogin from "./components/admin/Adminlogin";
-import Admindashboard from "./components/admin/Admindashboard";
+import Header from "./components/Header";
+import Home from "./screens/HomeScreen";
+import Footer from "./components/Footer";
+import RoomScreen from "./screens/RoomScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./screens/LoginScreen";
+import CreateRoomScreen from "./screens/CreateRoomScreen";
+import DashboardScreen from "./screens/DashboardScreen";
+import EditScreen from "./screens/EditScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import AdminLoginScreen from "./screens/AdminLoginScreen";
+import AdminScreen from "./screens/AdminScreen";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -58,14 +58,14 @@ function App() {
         <div className="small-container">
           <Route path="/room/:id" component={RoomScreen} />
         </div>
-        <Route path="/account/register" component={Register} />
-        <Route path="/account/login" component={Login} />
-        <Route path="/account/dashboard" component={Dashboard} />
-        <Route path="/sale" component={Sale} />
-        <Route path="/edit/room/:id" component={Editpost} />
-        <Route path="/profile/edit/:id" component={Editprofile} />
-        <Route path="/admin/login" component={Adminlogin} />
-        <Route path="/admin/dashboard" component={Admindashboard} />
+        <Route path="/account/register" component={RegisterScreen} />
+        <Route path="/account/login" component={LoginScreen} />
+        <Route path="/account/dashboard" component={DashboardScreen} />
+        <Route path="/sale" component={CreateRoomScreen} />
+        <Route path="/edit/room/:id" component={EditScreen} />
+        <Route path="/profile/edit/:id" component={ProfileScreen} />
+        <Route path="/admin/login" component={AdminLoginScreen} />
+        <Route path="/admin/dashboard" component={AdminScreen} />
         <Footer />
       </React.Fragment>
     </Router>

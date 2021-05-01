@@ -1,6 +1,6 @@
 import React from "react";
 
-const InfoListing = ({ room }) => {
+const RoomInfo = ({ room }) => {
   return (
     <div
       className="room-flex"
@@ -80,4 +80,4 @@ const flexContainer = {
   justifyContent: "space-between",
 };
 
-export default InfoListing;
+export default RoomInfo;

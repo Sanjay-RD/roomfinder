@@ -1,5 +1,5 @@
 import React from "react";
-import ListingItem from "./ListingItem";
+import RoomItems from "./RoomItems";
 
 const Listing = ({ roomInfo }) => {
   return (
@@ -9,7 +9,7 @@ const Listing = ({ roomInfo }) => {
       </h2>
       <div className="room-flex">
         {roomInfo.map((item) => (
-          <ListingItem key={item.id} item={item} />
+          <RoomItems key={item.id} item={item} />
         ))}
       </div>
     </div>
