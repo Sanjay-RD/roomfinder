@@ -26,7 +26,7 @@ const Sale = () => {
   };
 
   return (
-    <div className="sales-container">
+    <div className="small-container">
       <h1 style={{ marginBottom: "20px" }}>Create Room for Sale</h1>
       <form onSubmit={handleSubmit}>
         <div className="sales-form-group">

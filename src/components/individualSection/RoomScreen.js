@@ -9,11 +9,14 @@ import ImageListing from "../lightBox2/ImageListing";
 import profile from "./profile.jpg";
 import InfoListing from "./InfoListing";
 import Inquiry from "../Inquiry";
+import Messagebox from "../Messagebox";
 
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
   const [image, setImage] = useState("");
   const [inquiry, setInquiry] = useState(false);
+  const [admin, setAdmin] = useState(false);
+  const [closemessage, setClosemessage] = useState(false);
 
   const onClick = (e) => {
     console.log(e);
@@ -33,6 +36,13 @@ const RoomScreen = ({ match }) => {
   const onCloseInquiry = () => {
     setInquiry(false);
   };
+  const handleClick = () => {
+    setClosemessage(true);
+  };
+
+  const onCloseMessage = () => {
+    setClosemessage(false);
+  };
 
   const room = rooms.find((room) => room.id === parseInt(match.params.id));
   // console.log(room);
@@ -43,6 +53,12 @@ const RoomScreen = ({ match }) => {
           <i className="fas fa-arrow-left"></i> Back
         </button>
       </Link>
+      {admin && (
+        <button className="more-button delete" onClick={handleClick}>
+          Delete Post
+        </button>
+      )}
+      {closemessage && <Messagebox onClose={onCloseMessage} />}
       <div className="RoomScreen-grid">
         <div>
           <MainImage photomain={room.photomain} />

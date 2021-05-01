@@ -7,12 +7,15 @@ import RoomScreen from "./components/individualSection/RoomScreen";
 import Register from "./components/page/Register";
 import Login from "./components/page/Login";
 import Sale from "./components/page/Sale";
+import Dashboard from "./components/page/Dashboard";
+import Editpost from "./components/page/Editpost";
+import Editprofile from "./components/page/Editprofile";
+import Adminlogin from "./components/admin/Adminlogin";
+import Admindashboard from "./components/admin/Admindashboard";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import roomInfo from "./rooms";
-import Dashboard from "./components/page/Dashboard";
-import Editpost from "./components/page/Editpost";
 
 function App() {
   const [rooms, setRoom] = useState([]);
@@ -60,6 +63,9 @@ function App() {
         <Route path="/account/dashboard" component={Dashboard} />
         <Route path="/sale" component={Sale} />
         <Route path="/edit/room/:id" component={Editpost} />
+        <Route path="/profile/edit/:id" component={Editprofile} />
+        <Route path="/admin/login" component={Adminlogin} />
+        <Route path="/admin/dashboard" component={Admindashboard} />
         <Footer />
       </React.Fragment>
     </Router>
