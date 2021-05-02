@@ -15,25 +15,7 @@ import AdminScreen from "./screens/AdminScreen";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import roomInfo from "./rooms";
-
-function App() {
-  const [rooms, setRoom] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [roomsPerPage] = useState(6);
-
-  useEffect(() => {
-    setRoom(roomInfo);
-  }, []);
-
-  const indexOfLastRooms = currentPage * roomsPerPage;
-  const indexOfFirstRooms = indexOfLastRooms - roomsPerPage;
-  const currentRooms = rooms.slice(indexOfFirstRooms, indexOfLastRooms);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
+const App = () => {
   return (
     <Router>
       <React.Fragment>
@@ -45,12 +27,7 @@ function App() {
             path={["/", "/page/:id"]}
             render={(props) => (
               <React.Fragment>
-                <HomeScreen
-                  roomInfo={currentRooms}
-                  roomsPerPage={roomsPerPage}
-                  totalRooms={rooms.length}
-                  paginate={paginate}
-                />
+                <HomeScreen />
               </React.Fragment>
             )}
           />
@@ -70,6 +47,6 @@ function App() {
       </React.Fragment>
     </Router>
   );
-}
+};
 
 export default App;

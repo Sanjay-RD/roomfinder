@@ -4,7 +4,7 @@ import {
   ROOM_LIST_FAIL,
 } from "../constants/roomConstants";
 
-import roomData from "./rooms";
+import roomData from "../rooms";
 
 export const listRooms = () => async (dispatch) => {
   try {
@@ -13,7 +13,7 @@ export const listRooms = () => async (dispatch) => {
       type: ROOM_LIST_SUCCESS,
       payload: roomData,
     });
-  } catch (error) {
+  } catch (err) {
     dispatch({
       type: ROOM_LIST_FAIL,
       payload:
