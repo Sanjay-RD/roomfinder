@@ -1,34 +1,16 @@
 import React, { useState } from "react";
-import logo from "./logo.jpg";
 import { Link } from "react-router-dom";
 
 function Header() {
-  // const [toggle, setToggle] = useState(false);
-
-  // const handleClick = () => {
-  //   setToggle(!toggle);
-  // };
-
   return (
     <nav>
       <div className="header-container">
         <div className="flex-1">
-          {/* <ul className={toggle ? "nav-menu active" : "nav-menu"}>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/list">Featured Listing</a>
-            </li>
-          </ul> */}
           <ul>
             <li>
               <div className="logo">
                 <Link to="/">
-                  <img src={logo} alt="Company logo." />
+                  <img src="/images/logo.jpg" alt="Company logo." />
                 </Link>
               </div>
             </li>
@@ -52,9 +34,6 @@ function Header() {
             </li>
           </ul>
         </div>
-        {/* <button className="toggle" onClick={handleClick}>
-          <i className={toggle ? "fa fa-times" : "fa fa-bars"}></i>
-        </button> */}
       </div>
     </nav>
   );
