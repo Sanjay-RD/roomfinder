@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Home from "./screens/HomeScreen";
+import HomeScreen from "./screens/HomeScreen";
 import Footer from "./components/Footer";
 import RoomScreen from "./screens/RoomScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -45,7 +45,7 @@ function App() {
             path={["/", "/page/:id"]}
             render={(props) => (
               <React.Fragment>
-                <Home
+                <HomeScreen
                   roomInfo={currentRooms}
                   roomsPerPage={roomsPerPage}
                   totalRooms={rooms.length}
