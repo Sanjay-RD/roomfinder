@@ -9,7 +9,7 @@ import { listRooms } from "../actions/roomActions";
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const roomList = useSelector((state) => state.roomList);
-  const { loading, error, rooms } = roomList;
+  const { rooms } = roomList;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [roomsPerPage] = useState(6);
@@ -29,20 +29,14 @@ const HomeScreen = () => {
   return (
     <div className="grid-2">
       <Search />
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
-        <h3>{error}</h3>
-      ) : (
-        <div>
-          <Room roomInfo={currentRooms} />
-          <Pagination
-            roomsPerPage={roomsPerPage}
-            totalRooms={rooms.length}
-            paginate={paginate}
-          />
-        </div>
-      )}
+      <div>
+        <Room roomInfo={currentRooms} />
+        <Pagination
+          roomsPerPage={roomsPerPage}
+          totalRooms={rooms.length}
+          paginate={paginate}
+        />
+      </div>
     </div>
   );
 };

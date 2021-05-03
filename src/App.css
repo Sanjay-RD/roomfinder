@@ -736,6 +736,22 @@ input.createroom-save-button {
 }
 /* sales end */
 
+/* Loader and Message Style */
+.message {
+  padding: 15px 20px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.danger {
+  background-color: #f8d7da;
+  color: #975057;
+}
+.info {
+  background-color: #d1ecf1;
+  color: #518993;
+}
+/* Loader and Message Style End */
+
 /*  */
 /*  */
 /*  */
