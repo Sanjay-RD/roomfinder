@@ -11,12 +11,25 @@ import RoomInfo from "../components/RoomInfo";
 import Inquiry from "../components/Inquiry";
 import Messagebox from "../components/Messagebox";
 
+import { useDispatch, useSelector } from "react-redux";
+import { roomDetails } from "../actions/roomActions";
+
 const RoomScreen = ({ match }) => {
   const [click, setClick] = useState(false);
   const [image, setImage] = useState("");
   const [inquiry, setInquiry] = useState(false);
   const [admin, setAdmin] = useState(false);
   const [closemessage, setClosemessage] = useState(false);
+
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.roomDetails);
+  const { room } = selector;
+
+  const roomID = match.params.id;
+  console.log(roomID);
+  useEffect(() => {
+    dispatch(roomDetails(roomID));
+  }, [dispatch]);
 
   const onClick = (e) => {
     console.log(e);
@@ -43,9 +56,6 @@ const RoomScreen = ({ match }) => {
   const onCloseMessage = () => {
     setClosemessage(false);
   };
-
-  const room = rooms.find((room) => room.id === parseInt(match.params.id));
-  // console.log(room);
   return (
     <div style={{ marginBottom: "20px" }}>
       <Link to="/">
