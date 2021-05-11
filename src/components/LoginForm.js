@@ -1,26 +1,34 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../actions/userActions";
 
 const LoginForm = ({ title }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
+    dispatch(login(email, password));
   };
   return (
     <div className="register-form">
       <div className="register-header">
-        <i className="fa fa-sign-in" aria-hidden="true"></i> <h2>{title}</h2>
+        <h2>
+          <i className="fa fa-sign-in" aria-hidden="true"></i> {title}
+        </h2>
       </div>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label>Username</label>
+          <label>Email</label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            name="usename"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="form-group">
@@ -31,6 +39,7 @@ const LoginForm = ({ title }) => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
 
