@@ -2,6 +2,7 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUESTE,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "../constants/userConstants";
 
 import users from "../users";
@@ -30,4 +31,8 @@ export const login = (email, password) => async (dispatch) => {
           : err.message,
     });
   }
+};
+
+export const logout = () => async (dispatch) => {
+  dispatch({ type: USER_LOGOUT });
 };
