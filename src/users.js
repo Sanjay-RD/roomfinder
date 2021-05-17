@@ -7,6 +7,7 @@ const users = [
     email: "rishidevsanjay9@gmail.com",
     phoneNumber: "9869617375",
     password: "12345",
+    isAdmin: false,
   },
   {
     id: "2",
@@ -15,6 +16,7 @@ const users = [
     email: "admin@gmail.com",
     phoneNumber: "0000000000",
     password: "12345",
+    isAdmin: true,
   },
   {
     id: "3",
@@ -24,6 +26,7 @@ const users = [
     email: "bibek@gmail.com",
     phoneNumber: "9869617375",
     password: "12345",
+    isAdmin: false,
   },
 ];
 

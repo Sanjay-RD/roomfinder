@@ -33,7 +33,9 @@ const Header = () => {
           <ul className="login-register">
             <li>
               {success ? (
-                <Link to="/account/dashboard">
+                <Link
+                  to={user.isAdmin ? "/admin/dashboard" : "/account/dashboard"}
+                >
                   <i className="fa fa-home" aria-hidden="true"></i>{" "}
                   {user.firstName} Dashboard
                 </Link>

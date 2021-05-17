@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import RoomList from "../components/RoomList";
+import InquiryList from "../components/InquiryList";
+import UserList from "../components/UserList";
 
-const AdminScreen = () => {
+import rooms from "../rooms";
+import inquiryMsg from "../inquiryMsg";
+import users from "../users";
+
+import { useSelector } from "react-redux";
+
+const AdminScreen = ({ history }) => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { success, user } = userLogin;
+
+  useEffect(() => {
+    if (!success && user.isAdmin) {
+      history.push("/account/login");
+    }
+  }, []);
+
   return (
     <div className="dashboard">
       <div className="showcase">
         <img src="../../images/banner.jpeg" alt="" />
         <div className="showcase-content">
-          <h1>User Dashboard</h1>
-          <p>Manage your Account</p>
+          <h1>Admin Dashboard</h1>
+          <p>Manage All Account</p>
         </div>
       </div>
       <div className="dashboard-container">
@@ -21,165 +39,52 @@ const AdminScreen = () => {
         <div className="user-info">
           <div className="title">
             <div>
-              <h1>Welcome Sanjay</h1>
-              <p>
-                Here are the room listing that you have created and inquired
-                about
-              </p>
+              <h1>Welcome {user.firstName}</h1>
+              <p>Here are the room listing, user Details and Message of User</p>
             </div>
             <div>
-              <div className="view-listing edit-profile danger">
-                <Link to="/profile/edit/2">Edit Profile</Link>
+              <div className="view-listing edit-profile">
+                <Link to="/profile/edit/2">
+                  <i className="fas fa-edit"></i> Edit Profile
+                </Link>
               </div>
             </div>
           </div>
           <div className="room-listing">
             <h2>Room Details</h2>
-            {/* <ul>
-              <li>#</li>
-              <li>Property</li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-            <ul>
-              <div className="list-responsive-up">
-                <li>4</li>
-                <li>26 street 2 room available</li>
-              </div>
-              <div className="list-responsive-down">
-                <li>
-                  <div className="view-listing">
-                    <Link to="/room/2">View Listing</Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="view-listing">
-                    <Link to="/edit/room/2">Edit Post</Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="view-listing danger">
-                    <Link to="/room/2">Delete Post</Link>
-                  </div>
-                </li>
-              </div>
-            </ul>
-            <ul>
-              <div className="list-responsive-up">
-                <li>4</li>
-                <li>26 street 2 room available</li>
-              </div>
-              <div className="list-responsive-down">
-                <li>
-                  <div className="view-listing">
-                    <Link to="/room/2">View Listing</Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="view-listing">
-                    <Link to="/edit/room/2">Edit Post</Link>
-                  </div>
-                </li>
-                <li>
-                  <div className="view-listing danger">
-                    <Link to="/room/2">Delete Post</Link>
-                  </div>
-                </li>
-              </div>
-            </ul> */}
             <table>
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Property</th>
-                  <th></th>
+                  <th>Date</th>
                   <th></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>4</td>
-                  <td>26 street 2 room available</td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/room/2">View Listing</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/edit/room/2">Edit Post</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>26 street 2 room available</td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/room/2">View Listing</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/edit/room/2">Edit Post</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
+                {rooms.map((room) => (
+                  <RoomList key={room.id} room={room} />
+                ))}
               </tbody>
             </table>
           </div>
-          <div className="room-listing">
+
+          <div className="room-listing" style={{ overflowX: "auto" }}>
             <h2>Enquiry Details</h2>
             <table>
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Property</th>
+                  <th>Email</th>
                   <th></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>4</td>
-                  <td>26 street 2 room available</td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/edit/room/2">Edit Post</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>26 street 2 room available</td>
-                  <td>
-                    <div className="view-listing">
-                      <Link to="/edit/room/2">Edit Post</Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
+                {inquiryMsg.map((msg) => (
+                  <InquiryList key={msg.id} msg={msg} />
+                ))}
               </tbody>
             </table>
           </div>
@@ -193,47 +98,14 @@ const AdminScreen = () => {
                   <th>Username</th>
                   <th>Email</th>
                   <th>Phone Number</th>
-                  <th>Password</th>
-                  <th></th>
+                  <th>isAdmin</th>
+                  <th>Edit & Delete</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>sarina rishidev</td>
-                  <td>sarinarishidev@gmail.com</td>
-                  <td>1111111111</td>
-                  <td>kali rishidev</td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>sarina rishidev</td>
-                  <td>sarinarishidev@gmail.com</td>
-                  <td>1111111111</td>
-                  <td>kali rishidev</td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>sarina rishidev</td>
-                  <td>sarinarishidev@gmail.com</td>
-                  <td>1111111111</td>
-                  <td>kali rishidev</td>
-                  <td>
-                    <div className="view-listing danger">
-                      <Link to="/room/2">Delete Post</Link>
-                    </div>
-                  </td>
-                </tr>
+                {users.map((user) => (
+                  <UserList key={user.id} user={user} />
+                ))}
               </tbody>
             </table>
           </div>
