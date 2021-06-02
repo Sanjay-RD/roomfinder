@@ -99,7 +99,7 @@ const AdminScreen = ({ history }) => {
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>isAdmin</th>
-                  <th>Edit & Delete</th>
+                  <th>Edit/Delete</th>
                 </tr>
               </thead>
               <tbody>

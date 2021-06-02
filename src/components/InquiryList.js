@@ -9,7 +9,7 @@ const InquiryList = ({ msg }) => {
       <td>
         <div className="view-listing">
           <Link to="/edit/room/2">
-            <i className="fas fa-edit"></i> Edit Post
+            <i className="fas fa-edit"></i> Edit
           </Link>
         </div>
       </td>
@@ -17,7 +17,7 @@ const InquiryList = ({ msg }) => {
         <div className="view-listing danger">
           <Link to="/room/2">
             {" "}
-            <i className="fas fa-trash"></i>Delete Post
+            <i className="fas fa-trash"></i> Delete
           </Link>
         </div>
       </td>

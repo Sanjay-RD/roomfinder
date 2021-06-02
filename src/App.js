@@ -7,7 +7,7 @@ import RoomScreen from "./screens/RoomScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import LoginScreen from "./screens/LoginScreen";
 import CreateRoomScreen from "./screens/CreateRoomScreen";
-import DashboardScreen from "./screens/DashboardScreen";
+import UserDashboardScreen from "./screens/UserDashboardScreen";
 import EditScreen from "./screens/EditScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import AdminLoginScreen from "./screens/AdminLoginScreen";
@@ -37,7 +37,7 @@ const App = () => {
         </div>
         <Route path="/account/register" component={RegisterScreen} />
         <Route path="/account/login" component={LoginScreen} />
-        <Route path="/account/dashboard" component={DashboardScreen} />
+        <Route path="/account/dashboard" component={UserDashboardScreen} />
         <Route path="/sale" component={CreateRoomScreen} />
         <Route path="/edit/room/:id" component={EditScreen} />
         <Route path="/profile/edit/:id" component={ProfileScreen} />
