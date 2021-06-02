@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/userActions";
 
 const Header = () => {
+  const [toggle, setToggle] = useState(false);
+
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.userLogin);
   const { success, user } = selector;
@@ -11,9 +13,21 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
+
+  const handleToggleClick = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <nav>
       <div className="header-container">
+        <div className="toggle-bars" onClick={handleToggleClick}>
+          {toggle ? (
+            <i className="fa fa-times" aria-hidden="true"></i>
+          ) : (
+            <i className="fa fa-bars" aria-hidden="true"></i>
+          )}
+        </div>
         <div className="flex-1">
           <ul>
             <li>
@@ -30,7 +44,11 @@ const Header = () => {
               <Link to="/sale">For Sale</Link>
             </li>
           </ul>
-          <ul className="login-register">
+          <ul
+            className={
+              toggle ? "login-register open-nav" : "login-register close-nav"
+            }
+          >
             <li>
               {success ? (
                 <Link
