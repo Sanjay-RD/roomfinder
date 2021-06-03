@@ -12,6 +12,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    setToggle(false);
   };
 
   const handleToggleClick = () => {
@@ -32,7 +33,7 @@ const Header = () => {
           <ul>
             <li>
               <div className="logo">
-                <Link to="/">
+                <Link to="/" onClick={() => setToggle(false)}>
                   <img src="/images/logo.jpg" alt="Company logo." />
                 </Link>
               </div>
@@ -53,12 +54,13 @@ const Header = () => {
               {success ? (
                 <Link
                   to={user.isAdmin ? "/admin/dashboard" : "/account/dashboard"}
+                  onClick={handleToggleClick}
                 >
                   <i className="fa fa-home" aria-hidden="true"></i>{" "}
                   {user.firstName} Dashboard
                 </Link>
               ) : (
-                <Link to="/account/register">
+                <Link to="/account/register" onClick={handleToggleClick}>
                   <i className="fa fa-user-plus" aria-hidden="true"></i>{" "}
                   Register
                 </Link>
@@ -70,7 +72,11 @@ const Header = () => {
                   <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                 </Link>
               ) : (
-                <Link to="/account/login" className="login">
+                <Link
+                  to="/account/login"
+                  className="login"
+                  onClick={handleToggleClick}
+                >
                   <i className="fa fa-sign-in" aria-hidden="true"></i> Login
                 </Link>
               )}
