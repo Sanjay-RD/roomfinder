@@ -1,9 +1,10 @@
-const express = require("express");
-const app = express();
-const dotenv = require("dotenv");
-const rooms = require("./data/rooms.js");
+import express from "express";
+import dotenv from "dotenv";
+import rooms from "./data/rooms.js";
 
 dotenv.config();
+
+const app = express();
 
 app.get("/", (req, res) => {
   res.send("Api is Running.......");
