@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   ROOM_LIST_REQUESTE,
   ROOM_LIST_SUCCESS,
@@ -7,14 +8,15 @@ import {
   ROOM_DETAILS_FAIL,
 } from "../constants/roomConstants";
 
-import roomData from "../rooms";
-
 export const listRooms = () => async (dispatch) => {
   try {
     dispatch({ type: ROOM_LIST_REQUESTE });
+
+    const res = await axios.get("/api/rooms");
+
     dispatch({
       type: ROOM_LIST_SUCCESS,
-      payload: roomData,
+      payload: res.data,
     });
   } catch (err) {
     dispatch({
@@ -28,13 +30,14 @@ export const listRooms = () => async (dispatch) => {
 };
 
 export const roomDetails = (roomID) => async (dispatch) => {
-  const room = roomData.find((room) => room.id === parseInt(roomID));
-  // console.log(typeof roomID);
   try {
     dispatch({ type: ROOM_DETAILS_REQUESTE });
+
+    const res = await axios.get(`/api/rooms/${roomID}`);
+
     dispatch({
       type: ROOM_DETAILS_SUCCESS,
-      payload: room,
+      payload: res.data,
     });
   } catch (err) {
     dispatch({

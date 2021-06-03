@@ -26,7 +26,6 @@ const RoomScreen = ({ match }) => {
   const { room } = selector;
 
   const roomID = match.params.id;
-  console.log(roomID);
   useEffect(() => {
     dispatch(roomDetails(roomID));
   }, [dispatch]);
