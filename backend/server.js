@@ -1,10 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import rooms from "./data/rooms.js";
+import connectDB from "./config/db.js";
 
 dotenv.config();
 
 const app = express();
+
+// connection to the database
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("Api is Running.......");
