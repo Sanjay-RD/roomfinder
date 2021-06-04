@@ -70,7 +70,7 @@ const RoomScreen = ({ match }) => {
       {closemessage && <Messagebox onClose={onCloseMessage} />}
       <div className="RoomScreen-grid">
         <div>
-          <MainImage photomain={room.photomain} />
+          <MainImage mainImage={room.mainImage} />
           <ImageListing images={room.images} onClick={onClick} />
           <div
             className={click ? "backgroundimage" : "normal"}

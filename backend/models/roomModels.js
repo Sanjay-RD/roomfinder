@@ -7,6 +7,9 @@ const roomSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    owner: {
+      type: String,
+    },
     contact: {
       type: String,
       required: true,

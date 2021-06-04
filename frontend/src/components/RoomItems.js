@@ -44,7 +44,7 @@ const ListingItem = ({ item }) => {
           />
         </span>
         <Link to={`/room/${item.id}`}>
-          <img src={item.photomain} alt="mainimage" className="mainImage" />
+          <img src={item.mainImage} alt="mainimage" className="mainImage" />
         </Link>
       </div>
       <div className="content">
