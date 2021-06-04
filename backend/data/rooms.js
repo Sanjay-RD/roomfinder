@@ -1,10 +1,7 @@
 const rooms = [
   {
-    owner: "bibek raj tripathi",
-    contact: "9869617375",
     address: "chabhail",
     city: "kathmandu",
-    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -20,11 +17,8 @@ const rooms = [
     imageFive: "/images/room5.jpeg",
   },
   {
-    owner: "Sanjay Rd",
-    contact: "9869617375",
     address: "chabhail",
     city: "kathmandu",
-    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -40,11 +34,8 @@ const rooms = [
     imageFive: "/images/room5.jpeg",
   },
   {
-    owner: "Hari Chaudhari",
-    contact: "9869617375",
     address: "chabhail",
     city: "kathmandu",
-    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -60,11 +51,8 @@ const rooms = [
     imageFive: "/images/room5.jpeg",
   },
   {
-    owner: "Ashok Thapa",
-    contact: "9869617375",
     address: "chabhail",
     city: "kathmandu",
-    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,
@@ -80,11 +68,8 @@ const rooms = [
     imageFive: "/images/room5.jpeg",
   },
   {
-    owner: "Sujit hona",
-    contact: "9869617375",
     address: "chabhail",
     city: "kathmandu",
-    email: "bibek@gmail.com",
     description:
       "1 bedroom with 1 kitchen and 1 bathroom located in  kathmandu",
     price: 9000,

@@ -7,13 +7,6 @@ const roomSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    owner: {
-      type: String,
-    },
-    contact: {
-      type: String,
-      required: true,
-    },
     address: {
       type: String,
       required: true,
@@ -21,11 +14,6 @@ const roomSchema = mongoose.Schema(
     city: {
       type: String,
       required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
     },
     description: {
       type: String,
@@ -47,13 +35,9 @@ const roomSchema = mongoose.Schema(
       default: 0,
     },
     sqft: {
-      type: Nuumber,
+      type: Number,
       required: true,
       default: 0,
-    },
-    contact: {
-      type: String,
-      required: true,
     },
     garage: {
       type: Boolean,
@@ -64,23 +48,23 @@ const roomSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    mainOne: {
+    imageOne: {
       type: String,
       required: true,
     },
-    mainTwo: {
+    imageTwo: {
       type: String,
       required: true,
     },
-    mainThree: {
+    imageThree: {
       type: String,
       required: true,
     },
-    mainFour: {
+    imageFour: {
       type: String,
       required: true,
     },
-    mainfive: {
+    imageFive: {
       type: String,
       required: true,
     },
