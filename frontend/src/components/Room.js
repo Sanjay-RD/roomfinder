@@ -20,7 +20,7 @@ const Listing = ({ roomInfo }) => {
       ) : (
         <div className="room-flex">
           {roomInfo.map((item) => (
-            <RoomItems key={item.id} item={item} />
+            <RoomItems key={item._id} item={item} />
           ))}
         </div>
       )}

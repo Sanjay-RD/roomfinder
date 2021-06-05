@@ -32,7 +32,7 @@ const RoomInfo = ({ room }) => {
           <h4>
             <i className="fa fa-car" aria-hidden="true"></i> Garage:
           </h4>
-          <h4>{room.garage}</h4>
+          <h4>{room.garage ? "Yes" : "No"}</h4>
         </div>
       </div>
       {/* second list */}
@@ -62,14 +62,14 @@ const RoomInfo = ({ room }) => {
           <h4>
             <i className="fa fa-clock-o" aria-hidden="true"></i> Listing Date:
           </h4>
-          <h4>{room.start}</h4>
+          <h4>{room.createdAt && room.createdAt.substring(0, 10)}</h4>
         </div>
         <div className="line-brake"></div>
         <div style={flexContainer}>
           <h4>
             <i className="fa fa-user" aria-hidden="true"></i> Owner:
           </h4>
-          <h4>{room.owner}</h4>
+          <h4>{room.user && room.user.userName}</h4>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import rooms from "./data/rooms.js";
 import connectDB from "./config/db.js";
 import colors from "colors";
+import roomRoutes from "./routes/roomRoutes.js";
 
 dotenv.config();
 
@@ -15,14 +16,7 @@ app.get("/", (req, res) => {
   res.send("Api is Running.......");
 });
 
-app.get("/api/rooms", (req, res) => {
-  res.json(rooms);
-});
-
-app.get("/api/rooms/:id", (req, res) => {
-  const room = rooms.find((room) => room.id === parseInt(req.params.id));
-  res.json(room);
-});
+app.use("/api/rooms", roomRoutes);
 
 const PORT = process.env.PORT || 5000;
 

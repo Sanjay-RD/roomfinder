@@ -55,6 +55,15 @@ const RoomScreen = ({ match }) => {
   const onCloseMessage = () => {
     setClosemessage(false);
   };
+
+  const images = [
+    room.imageOne,
+    room.imageTwo,
+    room.imageThree,
+    room.imageFour,
+    room.imageFive,
+  ];
+
   return (
     <div style={{ marginBottom: "20px" }}>
       <Link to="/">
@@ -71,7 +80,7 @@ const RoomScreen = ({ match }) => {
       <div className="RoomScreen-grid">
         <div>
           <MainImage mainImage={room.mainImage} />
-          <ImageListing images={room.images} onClick={onClick} />
+          <ImageListing images={images} onClick={onClick} />
           <div
             className={click ? "backgroundimage" : "normal"}
             onClick={onClose}
@@ -80,6 +89,7 @@ const RoomScreen = ({ match }) => {
           </div>
           {/* Room Info Component */}
           <RoomInfo room={room} />
+
           <div style={scamsNotice}>
             <h3
               style={{
@@ -113,15 +123,21 @@ const RoomScreen = ({ match }) => {
             <div className="seller-info">
               <h4 style={margin}>
                 Name: <br />
-                <span className="text-color">{room.owner}</span>
+                <span className="text-color">
+                  {room.user && room.user.userName}
+                </span>
               </h4>
               <h4 style={margin}>
                 Mobile Phone: <br />
-                <span className="text-color">{room.contact}</span>
+                <span className="text-color">
+                  {room.user && room.user.phone}
+                </span>
               </h4>
               <h4 style={margin}>
                 Email: <br />
-                <span className="text-color">{room.email}</span>
+                <span className="text-color">
+                  {room.user && room.user.email}
+                </span>
               </h4>
               <h4 style={margin}>
                 Address: <br />

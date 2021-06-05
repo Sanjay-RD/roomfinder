@@ -1,9 +1,9 @@
 import React from "react";
 
-const MainImage = ({ photomain }) => {
+const MainImage = ({ mainImage }) => {
   return (
     <div className="mainImage-container">
-      <img src={photomain} alt="" className="lightbox-mainImage" />
+      <img src={mainImage} alt="" className="lightbox-mainImage" />
     </div>
   );
 };

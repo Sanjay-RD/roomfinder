@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import User from "./userModels.js";
 
 const roomSchema = mongoose.Schema(
   {
@@ -7,6 +8,7 @@ const roomSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+
     address: {
       type: String,
       required: true,
