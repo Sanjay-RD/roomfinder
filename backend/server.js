@@ -4,17 +4,23 @@ import rooms from "./data/rooms.js";
 import connectDB from "./config/db.js";
 import colors from "colors";
 import roomRoutes from "./routes/roomRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 
 const app = express();
 
+// body parsel
+app.use(express.json());
+
 // connection to the database
 connectDB();
 
 app.use("/api/rooms", roomRoutes);
+app.use("/api/user", userRoutes);
 
+// custome error handler
 app.use(notFound);
 app.use(errorHandler);
 
