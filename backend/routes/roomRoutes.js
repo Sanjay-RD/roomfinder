@@ -23,7 +23,12 @@ router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const room = await Room.findById(req.params.id).populate("user");
-    res.json(room);
+    if (room) {
+      res.json(room);
+    } else {
+      res.status(404);
+      res.json({ message: "Room Not Found" });
+    }
   })
 );
 

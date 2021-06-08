@@ -4,6 +4,7 @@ import rooms from "./data/rooms.js";
 import connectDB from "./config/db.js";
 import colors from "colors";
 import roomRoutes from "./routes/roomRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 
@@ -12,11 +13,10 @@ const app = express();
 // connection to the database
 connectDB();
 
-app.get("/", (req, res) => {
-  res.send("Api is Running.......");
-});
-
 app.use("/api/rooms", roomRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
