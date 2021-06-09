@@ -3,13 +3,13 @@ import LoginForm from "../components/LoginForm";
 import { useSelector } from "react-redux";
 
 const LoginScreen = ({ history }) => {
-  const selector = useSelector((state) => state.userLogin);
-  const { loading, success } = selector;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { user } = userLogin;
   useEffect(() => {
-    if (success) {
+    if (user) {
       history.push("/");
     }
-  }, [history, success]);
+  }, [history, user]);
   return <LoginForm title="Login" />;
 };
 

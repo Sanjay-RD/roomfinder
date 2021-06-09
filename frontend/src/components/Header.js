@@ -51,7 +51,7 @@ const Header = () => {
             }
           >
             <li>
-              {success ? (
+              {user ? (
                 <Link
                   to={user.isAdmin ? "/admin/dashboard" : "/account/dashboard"}
                   onClick={handleToggleClick}
@@ -67,7 +67,7 @@ const Header = () => {
               )}
             </li>
             <li>
-              {success ? (
+              {user ? (
                 <Link to="" onClick={handleLogout}>
                   <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                 </Link>
