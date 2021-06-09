@@ -46,4 +46,41 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, getUserProfile };
+// @desc    Register User
+// @route   GET api/user
+// @access  Public
+const registerUser = asyncHandler(async (req, res) => {
+  const { firstName, lastName, userName, email, phone, password } = req.body;
+  const userExits = await User.findOne({ email });
+  if (userExits) {
+    res.status(400);
+    throw new Error("User Already Exits");
+  }
+
+  const user = await User.create({
+    firstName,
+    lastName,
+    userName,
+    email,
+    phone,
+    password,
+  });
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      userName: user.userName,
+      email: user.email,
+      phone: user.phone,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid User Data");
+  }
+});
+
+export { authUser, getUserProfile, registerUser };
