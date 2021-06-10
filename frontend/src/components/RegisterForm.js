@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../actions/userActions";
 
-const RegisterForm = ({ title, submitTitle }) => {
+const RegisterForm = ({ title, submitTitle, history }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
@@ -9,10 +11,13 @@ const RegisterForm = ({ title, submitTitle }) => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    dispatch(register(firstname, lastname, username, email, phone, password));
   };
+
   return (
     <div className="register-form">
       <div className="register-header">
