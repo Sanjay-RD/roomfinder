@@ -25,3 +25,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# .env file
+# NODE_ENV = development
+# JWT_SECRET = kldjfoiad151
+# MONGO_URI = mongodb+srv://sanjay:sanjay@room-finder.bxaws.mongodb.net/roomFinder?retryWrites=true&w=majority

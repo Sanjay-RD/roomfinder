@@ -12,10 +12,10 @@ import { useSelector } from "react-redux";
 
 const AdminScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
-  const { success, user } = userLogin;
+  const { user } = userLogin;
 
   useEffect(() => {
-    if (!success && user.isAdmin) {
+    if (!user && user.isAdmin) {
       history.push("/account/login");
     }
   }, []);
