@@ -4,7 +4,6 @@ import RoomList from "../components/RoomList";
 import InquiryList from "../components/InquiryList";
 import UserList from "../components/UserList";
 
-import rooms from "../rooms";
 import inquiryMsg from "../inquiryMsg";
 import users from "../users";
 
@@ -13,6 +12,9 @@ import { useSelector } from "react-redux";
 const AdminScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { user } = userLogin;
+
+  const roomList = useSelector((state) => state.roomList);
+  const { rooms, loading: loadingRoom, error: errorRoo } = roomList;
 
   useEffect(() => {
     if (!user && user.isAdmin) {
@@ -55,9 +57,10 @@ const AdminScreen = ({ history }) => {
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Property</th>
-                  <th>Date</th>
+                  <th>ROOM ID</th>
+                  <th>OWNER_NAME</th>
+                  <th>PRICE</th>
+                  <th>CREATED_AT</th>
                   <th></th>
                   <th></th>
                 </tr>

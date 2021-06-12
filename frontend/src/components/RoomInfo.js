@@ -1,4 +1,5 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 
 const RoomInfo = ({ room }) => {
   return (
@@ -11,7 +12,14 @@ const RoomInfo = ({ room }) => {
           <h4>
             <i className="fa fa-money" aria-hidden="true"></i> Asking Price:
           </h4>
-          <h4>Rs.{room.price}</h4>
+          <h4>
+            <NumberFormat
+              value={room.price}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"Rs: "}
+            />
+          </h4>
         </div>
         <div className="line-brake"></div>
         <div style={flexContainer}>

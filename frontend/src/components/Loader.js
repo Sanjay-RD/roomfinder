@@ -3,9 +3,9 @@ import React from "react";
 const Loader = () => {
   return (
     <img
-      src="/images/spinner1.gif"
+      src="/images/spinner.gif"
       alt="loading..."
-      style={{ width: "200px", margin: "auto", display: "block" }}
+      style={{ width: "150px", margin: "auto", display: "block" }}
     />
   );
 };

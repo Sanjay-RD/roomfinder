@@ -671,6 +671,16 @@ tr:nth-child(even) {
 .dashboard-container {
   width: 70%;
   margin: auto;
+  position: relative;
+}
+.view-listing.edit-profile {
+  position: absolute;
+  right: 0px;
+  width: 125px;
+}
+a.flex-2 {
+  display: inline-flex;
+  gap: 5px;
 }
 .navigation-header {
   background-color: var(--border-light-color);
@@ -987,7 +997,6 @@ input.createroom-save-button {
   }
   .view-listing.edit-profile {
     margin-top: 20px;
-    width: 100px;
   }
   /* user Dashboard end*/
   /* sales */
