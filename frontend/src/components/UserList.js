@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const UserList = ({ user }) => {
   return (
     <tr>
-      <td>{user.id}</td>
+      <td>{user._id}</td>
       <td>{user.userName}</td>
       <td>{user.email}</td>
-      <td>{user.phoneNumber}</td>
+      <td>{user.phone}</td>
       <td>
         {user.isAdmin ? (
           <i className="fas fa-check" style={{ color: "green" }}></i>

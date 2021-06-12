@@ -1,4 +1,8 @@
 import {
+  USER_LIST_FAIL,
+  USER_LIST_REQUESTE,
+  USER_LIST_RESET,
+  USER_LIST_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUESTE,
   USER_LOGIN_SUCCESS,
@@ -47,6 +51,29 @@ export const userRegisterReducer = (state = {}, action) => {
         loading: false.valueOf,
         error: action.payload,
       };
+    default:
+      return state;
+  }
+};
+
+export const userListReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_LIST_REQUESTE:
+      return {
+        loading: true,
+      };
+    case USER_LIST_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+      };
+    case USER_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case USER_LIST_RESET:
+      return {};
     default:
       return state;
   }

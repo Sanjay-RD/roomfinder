@@ -5,22 +5,31 @@ import InquiryList from "../components/InquiryList";
 import UserList from "../components/UserList";
 
 import inquiryMsg from "../inquiryMsg";
-import users from "../users";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { listUsers } from "../actions/userActions";
+import { listRooms } from "../actions/roomActions";
 
 const AdminScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { user } = userLogin;
 
   const roomList = useSelector((state) => state.roomList);
-  const { rooms, loading: loadingRoom, error: errorRoo } = roomList;
+  const { rooms, loading: loadingRoom, error: errorRoom } = roomList;
+
+  const userList = useSelector((state) => state.userList);
+  const { users, loading: loadingListUser, error: errorListUser } = userList;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!user && user.isAdmin) {
+    if (user && user.isAdmin) {
+      dispatch(listUsers());
+      dispatch(listRooms());
+    } else {
       history.push("/account/login");
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="dashboard">
@@ -57,7 +66,7 @@ const AdminScreen = ({ history }) => {
             <table>
               <thead>
                 <tr>
-                  <th>ROOM ID</th>
+                  <th>ROOM_ID</th>
                   <th>OWNER_NAME</th>
                   <th>PRICE</th>
                   <th>CREATED_AT</th>
@@ -97,18 +106,17 @@ const AdminScreen = ({ history }) => {
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>isAdmin</th>
-                  <th>Edit/Delete</th>
+                  <th>USER_ID</th>
+                  <th>USER_NAME</th>
+                  <th>EMAIL</th>
+                  <th>PHONE_NUMBER</th>
+                  <th>ADMIN</th>
+                  <th>EDIT/DELETE</th>
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
-                  <UserList key={user.id} user={user} />
-                ))}
+                {users &&
+                  users.map((user) => <UserList key={user.id} user={user} />)}
               </tbody>
             </table>
           </div>

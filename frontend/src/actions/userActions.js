@@ -6,6 +6,10 @@ import {
   USER_REGISTER_REQUESTE,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
+  USER_LIST_REQUESTE,
+  USER_LIST_SUCCESS,
+  USER_LIST_RESET,
+  USER_LIST_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -80,7 +84,39 @@ export const register =
     }
   };
 
+export const listUsers = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_LIST_REQUESTE });
+
+    const {
+      userLogin: { user },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
+
+    const res = await axios.get("/api/user", config);
+
+    dispatch({
+      type: USER_LIST_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: USER_LIST_FAIL,
+      payload:
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
+    });
+  }
+};
+
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("user");
   dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_LIST_RESET });
 };

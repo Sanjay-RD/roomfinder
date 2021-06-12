@@ -3,13 +3,18 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 // import rootReducer from "./reducers";
 import { roomDetailsReducer, roomListReducer } from "./reducers/roomReducers";
-import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userListReducer,
+} from "./reducers/userReducers";
 
 const rootReducer = combineReducers({
   roomList: roomListReducer,
   roomDetails: roomDetailsReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userList: userListReducer,
 });
 
 const userFromStorage = localStorage.getItem("user")
