@@ -76,7 +76,7 @@ const AdminScreen = ({ history }) => {
               </thead>
               <tbody>
                 {rooms.map((room) => (
-                  <RoomList key={room.id} room={room} />
+                  <RoomList key={room._id} room={room} />
                 ))}
               </tbody>
             </table>
@@ -116,7 +116,7 @@ const AdminScreen = ({ history }) => {
               </thead>
               <tbody>
                 {users &&
-                  users.map((user) => <UserList key={user.id} user={user} />)}
+                  users.map((user) => <UserList key={user._id} user={user} />)}
               </tbody>
             </table>
           </div>

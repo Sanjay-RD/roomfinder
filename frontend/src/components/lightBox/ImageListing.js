@@ -5,9 +5,9 @@ const ImageListing = ({ images, onClick }) => {
   return (
     <div className="flex">
       {images &&
-        images.map((image) => (
+        images.map((image, index) => (
           // console.log(image)
-          <div className="box-img" key={image}>
+          <div className="box-img" key={index}>
             <img
               key={image}
               src={image}

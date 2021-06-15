@@ -28,7 +28,7 @@ const UserDashboardScreen = () => {
             </div>
             <div>
               <div className="view-listing edit-profile">
-                <Link to="/profile/edit/2">
+                <Link to="/profile">
                   <i className="fas fa-edit"></i> Edit Profile
                 </Link>
               </div>

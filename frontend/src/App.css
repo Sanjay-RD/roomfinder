@@ -747,7 +747,7 @@ input.createroom-save-button {
   margin-top: 15px;
   padding: 7px 15px;
   cursor: pointer;
-  background: #4d5f88;
+  background: var(--primary-color);
   border: none;
   border-radius: 5px;
   color: #fff;

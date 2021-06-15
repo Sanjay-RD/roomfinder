@@ -52,23 +52,18 @@ const roomSchema = mongoose.Schema(
     },
     imageOne: {
       type: String,
-      required: true,
     },
     imageTwo: {
       type: String,
-      required: true,
     },
     imageThree: {
       type: String,
-      required: true,
     },
     imageFour: {
       type: String,
-      required: true,
     },
     imageFive: {
       type: String,
-      required: true,
     },
   },
   {

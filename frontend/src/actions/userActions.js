@@ -10,6 +10,10 @@ import {
   USER_LIST_SUCCESS,
   USER_LIST_RESET,
   USER_LIST_FAIL,
+  USER_UPDATE_REQUESTE,
+  USER_UPDATE_SUCCESS,
+  USER_UPDATE_FAIL,
+  USER_UPDATE_RESET,
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -115,8 +119,43 @@ export const listUsers = () => async (dispatch, getState) => {
   }
 };
 
+export const updateUserProfile = (userData) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_UPDATE_REQUESTE });
+
+    const {
+      userLogin: { user },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
+
+    const res = await axios.put("/api/user/profile", userData, config);
+
+    dispatch({
+      type: USER_UPDATE_SUCCESS,
+    });
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: USER_UPDATE_FAIL,
+      payload:
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
+    });
+  }
+};
+
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("user");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_LIST_RESET });
+  dispatch({ type: USER_UPDATE_RESET });
 };
