@@ -30,7 +30,10 @@ const ProfileScreen = ({ history }) => {
       setEmail(user.email);
       setPhone(user.phone);
     }
-  }, []);
+    if (success) {
+      history.push("/account/dashboard");
+    }
+  }, [success]);
 
   const onSubmit = (e) => {
     e.preventDefault();

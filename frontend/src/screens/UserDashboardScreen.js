@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import InquiryList from "../components/InquiryList";
 import inquiryMsg from "../inquiryMsg";
+import Message from "../components/Message";
+
+import { useSelector, useDispatch } from "react-redux";
+import { USER_UPDATE_RESET } from "../constants/userConstants";
 
 const UserDashboardScreen = () => {
+  const dispatch = useDispatch();
+  const updateUserProfile = useSelector((state) => state.updateUserProfile);
+  const { loading, success } = updateUserProfile;
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch({ type: USER_UPDATE_RESET });
+    }, 5000);
+  }, []);
   return (
     <div className="dashboard">
       <div className="showcase">
@@ -21,6 +34,7 @@ const UserDashboardScreen = () => {
           / <span style={spanColor}>Dashboard</span>
         </div>
         <div className="user-info">
+          {success && <Message variant="success">Profile Updated</Message>}
           <div className="title">
             <div>
               <h1>Welcome sanjay</h1>
