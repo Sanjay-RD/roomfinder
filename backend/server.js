@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+import path from "path";
 import rooms from "./data/rooms.js";
 import connectDB from "./config/db.js";
 import colors from "colors";
 import roomRoutes from "./routes/roomRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +21,11 @@ connectDB();
 
 app.use("/api/rooms", roomRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/upload", uploadRoutes);
+
+const __dirname = path.resolve();
+// __dirname is use to access the current directory file which is not available if we are using ES-Module, it's only available using common js so to mimic this we use path.resolve()
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // custome error handler
 app.use(notFound);
