@@ -2,23 +2,20 @@ import React, { useState } from "react";
 
 const CreateRoomScreen = () => {
   const [ownername, setOwnername] = useState("");
-  const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [contact, setContact] = useState("");
-  const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [bedroom, setBedroom] = useState("");
   const [bathroom, setBathroom] = useState("");
   const [garage, setGarage] = useState("true");
-  const [mainphoto, setMainphoto] = useState("");
-  const [photo1, setPhoto1] = useState("");
-  const [photo2, setPhoto2] = useState("");
-  const [photo3, setPhoto3] = useState("");
-  const [photo4, setPhoto4] = useState("");
-  const [photo5, setPhoto5] = useState("");
-  const [photo6, setPhoto6] = useState("");
+  const [mainImage, setMainImage] = useState("");
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
+  const [image4, setImage4] = useState("");
+  const [image5, setImage5] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,14 +32,6 @@ const CreateRoomScreen = () => {
             type="text"
             className="sales-form-control"
             onChange={(e) => setOwnername(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Title</label>
-          <input
-            type="text"
-            className="sales-form-control"
-            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -67,14 +56,6 @@ const CreateRoomScreen = () => {
             type="text"
             className="sales-form-control"
             onChange={(e) => setContact(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            className="sales-form-control"
-            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -134,7 +115,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setMainphoto(e.target.value)}
+            onChange={(e) => setMainImage(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -142,7 +123,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto1(e.target.value)}
+            onChange={(e) => setImage1(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -150,7 +131,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto2(e.target.value)}
+            onChange={(e) => setImage2(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -158,7 +139,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto3(e.target.value)}
+            onChange={(e) => setImage3(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -166,7 +147,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto4(e.target.value)}
+            onChange={(e) => setImage4(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -174,15 +155,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto5(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Photo 6:</label>
-          <input
-            type="file"
-            className="sales-form-control file"
-            onChange={(e) => setPhoto6(e.target.value)}
+            onChange={(e) => setImage5(e.target.value)}
           />
         </div>
         <div>

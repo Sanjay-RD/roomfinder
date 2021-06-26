@@ -50,19 +50,19 @@ const roomSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    imageOne: {
+    image1: {
       type: String,
     },
-    imageTwo: {
+    image2: {
       type: String,
     },
-    imageThree: {
+    image3: {
       type: String,
     },
-    imageFour: {
+    image4: {
       type: String,
     },
-    imageFive: {
+    image5: {
       type: String,
     },
   },
