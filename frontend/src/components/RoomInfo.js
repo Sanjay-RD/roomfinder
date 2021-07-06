@@ -54,7 +54,7 @@ const RoomInfo = ({ room }) => {
           </h4>
         </div>
         <div className="line-brake"></div>
-        {room.sqft && (
+        {/* {room.sqft && (
           <div>
             <div style={flexContainer}>
               <h4>
@@ -65,7 +65,7 @@ const RoomInfo = ({ room }) => {
             </div>
             <div className="line-brake"></div>
           </div>
-        )}
+        )} */}
         <div style={flexContainer}>
           <h4>
             <i className="fa fa-clock-o" aria-hidden="true"></i> Listing Date:

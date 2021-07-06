@@ -38,7 +38,6 @@ const roomSchema = mongoose.Schema(
     },
     sqft: {
       type: Number,
-      required: true,
       default: 0,
     },
     garage: {

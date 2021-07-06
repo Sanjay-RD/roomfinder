@@ -59,13 +59,13 @@ const RoomScreen = ({ match }) => {
   };
 
   const images = [
-    room.imageOne,
-    room.imageTwo,
-    room.imageThree,
-    room.imageFour,
-    room.imageFive,
+    room.image1 !== "" && room.image1,
+    room.image2 !== "" && room.image2,
+    room.image3 !== "" && room.image3,
+    room.image4 !== "" && room.image4,
+    room.image5 !== "" && room.image5,
   ];
-
+  console.log(images);
   return (
     <>
       {loading ? (

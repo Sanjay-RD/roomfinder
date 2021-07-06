@@ -9,7 +9,7 @@ const ImageListing = ({ images, onClick }) => {
           // console.log(image)
           <div className="box-img" key={index}>
             <img
-              key={image}
+              key={index}
               src={image}
               alt=""
               className="lightbox hover-shadow"

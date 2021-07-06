@@ -673,10 +673,17 @@ tr:nth-child(even) {
   margin: auto;
   position: relative;
 }
+.create_edit_Btn {
+  display: flex;
+  align-items: flex-end;
+}
 .view-listing.edit-profile {
-  position: absolute;
-  right: 0px;
   width: 125px;
+}
+.view-listing.create-room {
+  width: 145px;
+  margin-top: 25px;
+  margin-right: 20px;
 }
 a.flex-2 {
   display: inline-flex;
@@ -765,8 +772,11 @@ input.createroom-save-button {
   color: #975057;
 }
 .info {
-  background-color: #d1ecf1;
-  color: #518993;
+  background-color: #28a745;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  margin: 15px 0px;
 }
 /* Loader and Message Style End */
 
@@ -1015,6 +1025,9 @@ input.createroom-save-button {
     margin-right: 5px;
   }
   .room-listing ul {
+    display: block;
+  }
+  .create_edit_Btn {
     display: block;
   }
 }

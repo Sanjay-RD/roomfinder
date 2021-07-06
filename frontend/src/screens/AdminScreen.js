@@ -20,6 +20,9 @@ const AdminScreen = ({ history }) => {
   const userList = useSelector((state) => state.userList);
   const { users, loading: loadingListUser, error: errorListUser } = userList;
 
+  const roomDelete = useSelector((state) => state.roomDelete);
+  const { loading: loadingRoomDelete, success: successRoomDelete } = roomDelete;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const AdminScreen = ({ history }) => {
     } else {
       history.push("/account/login");
     }
-  }, [dispatch]);
+  }, [dispatch, successRoomDelete]);
 
   return (
     <div className="dashboard">

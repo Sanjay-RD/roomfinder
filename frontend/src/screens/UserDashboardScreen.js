@@ -40,7 +40,12 @@ const UserDashboardScreen = () => {
               <h1>Welcome sanjay</h1>
               <p>Here are the room listing, user Details and Message of User</p>
             </div>
-            <div>
+            <div className="create_edit_Btn">
+              <div className="view-listing create-room">
+                <Link to="/sale">
+                  <i className="fas fa-edit"></i> Create Room
+                </Link>
+              </div>
               <div className="view-listing edit-profile">
                 <Link to="/profile">
                   <i className="fas fa-edit"></i> Edit Profile

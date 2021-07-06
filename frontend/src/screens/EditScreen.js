@@ -1,28 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { roomDetails, roomUpdate } from "../actions/roomActions";
+import { ROOM_UPDATE_RESET } from "../constants/roomConstants";
 
-const EditScreen = () => {
-  const [ownername, setOwnername] = useState("");
-  const [title, setTitle] = useState("");
+const EditScreen = ({ match, history }) => {
+  const dispatch = useDispatch();
+  const roomId = match.params.id;
+
+  const roomDetailsData = useSelector((state) => state.roomDetails);
+  const { room } = roomDetailsData;
+
+  const roomUpdateData = useSelector((state) => state.roomUpdate);
+  const { success: successRoomUpdate } = roomUpdateData;
+
+  const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [contact, setContact] = useState("");
-  const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [bedroom, setBedroom] = useState("");
   const [bathroom, setBathroom] = useState("");
-  const [garage, setGarage] = useState("true");
+  const [garage, setGarage] = useState(true);
   const [mainphoto, setMainphoto] = useState("");
   const [photo1, setPhoto1] = useState("");
   const [photo2, setPhoto2] = useState("");
   const [photo3, setPhoto3] = useState("");
   const [photo4, setPhoto4] = useState("");
   const [photo5, setPhoto5] = useState("");
-  const [photo6, setPhoto6] = useState("");
+
+  useEffect(() => {
+    if (successRoomUpdate) {
+      dispatch({ type: ROOM_UPDATE_RESET });
+      history.push("/admin/dashboard");
+    } else {
+      if (!room._id || room._id !== roomId) {
+        dispatch(roomDetails(roomId));
+      } else {
+        setUsername(room.user.userName);
+        setAddress(room.address);
+        setCity(room.city);
+        setDescription(room.description);
+        setPrice(room.price);
+        setBedroom(room.bedroom);
+        setBathroom(room.bathroom);
+        setGarage(room.garage);
+        setMainphoto(room.mainImage);
+        setPhoto1(room.image1);
+        setPhoto2(room.image2);
+        setPhoto3(room.image3);
+        setPhoto4(room.image4);
+        setPhoto5(room.image5);
+      }
+    }
+  }, [dispatch, room._id, history, successRoomUpdate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("object");
+    const room = {
+      username,
+      address,
+      city,
+      description,
+      price,
+      bedroom,
+      bathroom,
+      garage,
+      mainphoto,
+      photo1,
+      photo2,
+      photo3,
+      photo4,
+      photo5,
+    };
+    dispatch(roomUpdate(room, roomId));
   };
   return (
     <div className="small-container">
@@ -32,22 +82,17 @@ const EditScreen = () => {
           <label>Owner Name</label>
           <input
             type="text"
+            value={username}
             className="sales-form-control"
-            onChange={(e) => setOwnername(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Title</label>
-          <input
-            type="text"
-            className="sales-form-control"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
+            disabled
           />
         </div>
         <div className="sales-form-group">
           <label>Address</label>
           <input
             type="text"
+            value={address}
             className="sales-form-control"
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -56,24 +101,9 @@ const EditScreen = () => {
           <label>City</label>
           <input
             type="text"
+            value={city}
             className="sales-form-control"
             onChange={(e) => setCity(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Contact</label>
-          <input
-            type="text"
-            className="sales-form-control"
-            onChange={(e) => setContact(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            className="sales-form-control"
-            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="sales-form-group">
@@ -82,6 +112,7 @@ const EditScreen = () => {
             className="sales-form-control textarea"
             cols="30"
             rows="10"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
@@ -89,6 +120,7 @@ const EditScreen = () => {
           <label>Price</label>
           <input
             type="text"
+            value={price}
             className="sales-form-control price"
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -97,6 +129,7 @@ const EditScreen = () => {
           <label>Bedrooms</label>
           <input
             type="number"
+            value={bedroom}
             className="sales-form-control bedrooms"
             onChange={(e) => setBedroom(e.target.value)}
           />
@@ -105,6 +138,7 @@ const EditScreen = () => {
           <label>Bathrooms</label>
           <input
             type="number"
+            value={bathroom}
             className="sales-form-control bathrooms"
             onChange={(e) => setBathroom(e.target.value)}
           />
@@ -114,22 +148,23 @@ const EditScreen = () => {
           <div>
             <input
               type="radio"
-              value="true"
-              onChange={(e) => setGarage(e.target.value)}
-              checked={garage === "true"}
+              onChange={(e) => setGarage(true)}
+              checked={garage === true}
             />{" "}
             Yes{" "}
             <input
               type="radio"
-              value="false"
-              onChange={(e) => setGarage(e.target.value)}
-              checked={garage === "false"}
+              onChange={(e) => setGarage(false)}
+              checked={garage === false}
             />{" "}
             No
           </div>
         </div>
         <div className="sales-form-group">
           <label>Photo main</label>
+          <span>
+            <b>{mainphoto}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
@@ -138,6 +173,9 @@ const EditScreen = () => {
         </div>
         <div className="sales-form-group">
           <label>Photo 1:</label>
+          <span>
+            <b>{photo1}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
@@ -146,6 +184,9 @@ const EditScreen = () => {
         </div>
         <div className="sales-form-group">
           <label>Photo 2:</label>
+          <span>
+            <b>{photo2}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
@@ -154,6 +195,9 @@ const EditScreen = () => {
         </div>
         <div className="sales-form-group">
           <label>Photo 3:</label>
+          <span>
+            <b>{photo3}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
@@ -162,6 +206,9 @@ const EditScreen = () => {
         </div>
         <div className="sales-form-group">
           <label>Photo 4:</label>
+          <span>
+            <b>{photo4}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
@@ -170,18 +217,13 @@ const EditScreen = () => {
         </div>
         <div className="sales-form-group">
           <label>Photo 5:</label>
+          <span>
+            <b>{photo5}</b>
+          </span>
           <input
             type="file"
             className="sales-form-control file"
             onChange={(e) => setPhoto5(e.target.value)}
-          />
-        </div>
-        <div className="sales-form-group">
-          <label>Photo 6:</label>
-          <input
-            type="file"
-            className="sales-form-control file"
-            onChange={(e) => setPhoto6(e.target.value)}
           />
         </div>
         <div>

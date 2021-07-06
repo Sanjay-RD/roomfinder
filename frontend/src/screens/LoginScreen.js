@@ -45,7 +45,7 @@ const LoginScreen = ({ history }) => {
         <div className="form-group">
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             className="form-control"
             name="password"
             value={password}

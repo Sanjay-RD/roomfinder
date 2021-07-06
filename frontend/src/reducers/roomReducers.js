@@ -5,6 +5,17 @@ import {
   ROOM_DETAILS_REQUESTE,
   ROOM_DETAILS_SUCCESS,
   ROOM_DETAILS_FAIL,
+  ROOM_CREATE_REQUESTE,
+  ROOM_CREATE_SUCCESS,
+  ROOM_CREATE_FAIL,
+  ROOM_CREATE_RESET,
+  ROOM_DELETE_REQUESTE,
+  ROOM_DELETE_SUCCESS,
+  ROOM_DELETE_FAIL,
+  ROOM_UPDATE_REQUESTE,
+  ROOM_UPDATE_SUCCESS,
+  ROOM_UPDATE_FAIL,
+  ROOM_UPDATE_RESET,
 } from "../constants/roomConstants";
 
 export const roomListReducer = (state = { rooms: [] }, action) => {
@@ -46,6 +57,75 @@ export const roomDetailsReducer = (state = { room: {} }, action) => {
         loading: false,
         error: action.payload,
       };
+    default:
+      return state;
+  }
+};
+
+export const roomCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ROOM_CREATE_REQUESTE:
+      return {
+        loading: true,
+      };
+    case ROOM_CREATE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        room: action.payload,
+      };
+    case ROOM_CREATE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ROOM_CREATE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const roomDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ROOM_DELETE_REQUESTE:
+      return {
+        loading: true,
+      };
+    case ROOM_DELETE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ROOM_DELETE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const roomUpdateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ROOM_UPDATE_REQUESTE:
+      return {
+        loading: true,
+      };
+    case ROOM_UPDATE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        room: action.payload,
+      };
+    case ROOM_UPDATE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ROOM_UPDATE_RESET:
+      return {};
     default:
       return state;
   }

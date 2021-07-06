@@ -11,12 +11,15 @@ const HomeScreen = () => {
   const roomList = useSelector((state) => state.roomList);
   const { rooms } = roomList;
 
+  const roomCreate = useSelector((state) => state.roomCreate);
+  const { success: createRoomSuccess } = roomCreate;
+
   const [currentPage, setCurrentPage] = useState(1);
   const [roomsPerPage] = useState(6);
 
   useEffect(() => {
     dispatch(listRooms());
-  }, [dispatch]);
+  }, [dispatch, createRoomSuccess]);
 
   const indexOfLastRooms = currentPage * roomsPerPage;
   const indexOfFirstRooms = indexOfLastRooms - roomsPerPage;

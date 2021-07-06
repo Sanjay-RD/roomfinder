@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NumberFormat from "react-number-format";
 
+import { useDispatch } from "react-redux";
+import { deleteRoom } from "../actions/roomActions";
+
 const RoomList = ({ room }) => {
+  const dispatch = useDispatch();
+  const deleteHandler = (roomId) => {
+    if (window.confirm("Are you Sure")) {
+      dispatch(deleteRoom(roomId));
+    }
+  };
   return (
     <>
       <tr>
@@ -23,14 +32,18 @@ const RoomList = ({ room }) => {
         <td>{room.createdAt && room.createdAt.substring(0, 10)}</td>
         <td>
           <div className="view-listing">
-            <Link to="/edit/room/2" className="flex-2">
+            <Link to={`/edit/room/${room._id}`} className="flex-2">
               <i className="fas fa-edit"></i> Edit
             </Link>
           </div>
         </td>
         <td>
           <div className="view-listing danger">
-            <Link to="/room/2" className="flex-2">
+            <Link
+              to="#"
+              className="flex-2"
+              onClick={() => deleteHandler(room._id)}
+            >
               <i className="fas fa-trash"></i> Delete
             </Link>
           </div>

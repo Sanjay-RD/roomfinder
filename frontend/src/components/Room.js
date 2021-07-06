@@ -8,11 +8,15 @@ import Message from "./Message";
 const Listing = ({ roomInfo }) => {
   const roominfo = useSelector((state) => state.roomList);
   const { loading, error } = roominfo;
+
+  const roomCreate = useSelector((state) => state.roomCreate);
+  const { success: createRoomSuccess } = roomCreate;
   return (
     <div>
       <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
         Latest Listing
       </h2>
+      {createRoomSuccess && <Message variant="info">Room Created</Message>}
       {loading ? (
         <Loader />
       ) : error ? (

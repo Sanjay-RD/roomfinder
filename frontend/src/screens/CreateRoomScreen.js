@@ -1,10 +1,19 @@
+import axios from "axios";
 import React, { useState } from "react";
 
-const CreateRoomScreen = () => {
-  const [ownername, setOwnername] = useState("");
+import { useSelector, useDispatch } from "react-redux";
+import { createRoom } from "../actions/roomActions";
+
+const CreateRoomScreen = ({ history }) => {
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { user } = userLogin;
+
+  const [ownername, setOwnername] = useState(user.userName);
+  const [contact, setContact] = useState(user.phone);
+  const [email, setEmail] = useState(user.email);
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [contact, setContact] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [bedroom, setBedroom] = useState("");
@@ -17,9 +26,43 @@ const CreateRoomScreen = () => {
   const [image4, setImage4] = useState("");
   const [image5, setImage5] = useState("");
 
+  const uploadFileHandler = async (e, setImages) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+      setImages(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("object");
+    const room = {
+      address,
+      city,
+      description,
+      price,
+      bedroom,
+      bathroom,
+      garage,
+      mainImage,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
+    };
+    dispatch(createRoom(room));
+    history.push("/");
   };
 
   return (
@@ -31,7 +74,17 @@ const CreateRoomScreen = () => {
           <input
             type="text"
             className="sales-form-control"
-            onChange={(e) => setOwnername(e.target.value)}
+            value={ownername}
+            disabled
+          />
+        </div>
+        <div className="sales-form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            className="sales-form-control"
+            value={email}
+            disabled
           />
         </div>
         <div className="sales-form-group">
@@ -55,7 +108,8 @@ const CreateRoomScreen = () => {
           <input
             type="text"
             className="sales-form-control"
-            onChange={(e) => setContact(e.target.value)}
+            value={contact}
+            disabled
           />
         </div>
         <div className="sales-form-group">
@@ -115,7 +169,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setMainImage(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setMainImage)}
           />
         </div>
         <div className="sales-form-group">
@@ -123,7 +177,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setImage1(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage1)}
           />
         </div>
         <div className="sales-form-group">
@@ -131,7 +185,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setImage2(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage2)}
           />
         </div>
         <div className="sales-form-group">
@@ -139,7 +193,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setImage3(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage3)}
           />
         </div>
         <div className="sales-form-group">
@@ -147,7 +201,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setImage4(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage4)}
           />
         </div>
         <div className="sales-form-group">
@@ -155,7 +209,7 @@ const CreateRoomScreen = () => {
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setImage5(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage5)}
           />
         </div>
         <div>

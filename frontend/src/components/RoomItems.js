@@ -95,14 +95,14 @@ const ListingItem = ({ item }) => {
               {item.garage ? "Yes" : "No"}
             </p>
           </div>
-          {item.sqft && (
+          {/* {item.sqft && (
             <div className="sqft">
               <p className="small-size">
                 <i className="fa fa-th-large" aria-hidden="true"></i> Sqft:{" "}
                 {item.sqft}
               </p>
             </div>
-          )}
+          )} */}
         </div>
         <div className="line-brake"></div>
         <div className="owner-info">
