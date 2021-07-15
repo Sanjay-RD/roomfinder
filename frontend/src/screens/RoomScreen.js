@@ -33,7 +33,6 @@ const RoomScreen = ({ match }) => {
   }, [dispatch]);
 
   const onClick = (e) => {
-    console.log(e);
     // console.log(e.target.currentSrc);
     setImage(e.target.currentSrc);
     setClick(!click);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { roomDetails, roomUpdate } from "../actions/roomActions";
 import { ROOM_UPDATE_RESET } from "../constants/roomConstants";
@@ -21,12 +22,12 @@ const EditScreen = ({ match, history }) => {
   const [bedroom, setBedroom] = useState("");
   const [bathroom, setBathroom] = useState("");
   const [garage, setGarage] = useState(true);
-  const [mainphoto, setMainphoto] = useState("");
-  const [photo1, setPhoto1] = useState("");
-  const [photo2, setPhoto2] = useState("");
-  const [photo3, setPhoto3] = useState("");
-  const [photo4, setPhoto4] = useState("");
-  const [photo5, setPhoto5] = useState("");
+  const [mainImage, setMainImage] = useState("");
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
+  const [image4, setImage4] = useState("");
+  const [image5, setImage5] = useState("");
 
   useEffect(() => {
     if (successRoomUpdate) {
@@ -44,15 +45,33 @@ const EditScreen = ({ match, history }) => {
         setBedroom(room.bedroom);
         setBathroom(room.bathroom);
         setGarage(room.garage);
-        setMainphoto(room.mainImage);
-        setPhoto1(room.image1);
-        setPhoto2(room.image2);
-        setPhoto3(room.image3);
-        setPhoto4(room.image4);
-        setPhoto5(room.image5);
+        setMainImage(room.mainImage);
+        setImage1(room.image1);
+        setImage2(room.image2);
+        setImage3(room.image3);
+        setImage4(room.image4);
+        setImage5(room.image5);
       }
     }
   }, [dispatch, room._id, history, successRoomUpdate]);
+
+  const uploadFileHandler = async (e, setImages) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+      setImages(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,12 +84,12 @@ const EditScreen = ({ match, history }) => {
       bedroom,
       bathroom,
       garage,
-      mainphoto,
-      photo1,
-      photo2,
-      photo3,
-      photo4,
-      photo5,
+      mainImage,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
     };
     dispatch(roomUpdate(room, roomId));
   };
@@ -163,73 +182,73 @@ const EditScreen = ({ match, history }) => {
         <div className="sales-form-group">
           <label>Photo main</label>
           <span>
-            <b>{mainphoto}</b>
+            <b>{mainImage}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setMainphoto(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setMainImage)}
           />
         </div>
         <div className="sales-form-group">
           <label>Photo 1:</label>
           <span>
-            <b>{photo1}</b>
+            <b>{image1}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto1(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage1)}
           />
         </div>
         <div className="sales-form-group">
           <label>Photo 2:</label>
           <span>
-            <b>{photo2}</b>
+            <b>{image2}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto2(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage2)}
           />
         </div>
         <div className="sales-form-group">
           <label>Photo 3:</label>
           <span>
-            <b>{photo3}</b>
+            <b>{image3}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto3(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage3)}
           />
         </div>
         <div className="sales-form-group">
           <label>Photo 4:</label>
           <span>
-            <b>{photo4}</b>
+            <b>{image4}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto4(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage4)}
           />
         </div>
         <div className="sales-form-group">
           <label>Photo 5:</label>
           <span>
-            <b>{photo5}</b>
+            <b>{image5}</b>
           </span>
           <input
             type="file"
             className="sales-form-control file"
-            onChange={(e) => setPhoto5(e.target.value)}
+            onChange={(e) => uploadFileHandler(e, setImage5)}
           />
         </div>
         <div>
           <input
             type="submit"
-            value="Create Room"
+            value="Update Room"
             className="createroom-save-button"
           />
         </div>
