@@ -97,4 +97,22 @@ const updateRoom = asyncHandler(async (req, res) => {
   }
 });
 
-export { getRooms, getRoomById, createRoom, deleteRoom, updateRoom };
+// @desc    Fetch All User Room by id
+// @route   GET api/rooms/userRooms
+// @access  Private
+const getUserRooms = asyncHandler(async (req, res) => {
+  const room = await Room.find({ user: req.user._id }).populate(
+    "user",
+    "userName"
+  );
+  res.json(room);
+});
+
+export {
+  getRooms,
+  getRoomById,
+  createRoom,
+  deleteRoom,
+  updateRoom,
+  getUserRooms,
+};

@@ -16,6 +16,9 @@ import {
   ROOM_UPDATE_REQUESTE,
   ROOM_UPDATE_SUCCESS,
   ROOM_UPDATE_FAIL,
+  USER_ROOM_FAIL,
+  USER_ROOM_REQUESTE,
+  USER_ROOM_SUCCESS,
 } from "../constants/roomConstants";
 
 export const listRooms = () => async (dispatch) => {
@@ -154,6 +157,38 @@ export const roomUpdate = (room, id) => async (dispatch, getState) => {
   } catch (err) {
     dispatch({
       type: ROOM_UPDATE_FAIL,
+      payload:
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
+    });
+  }
+};
+
+export const getUserRoom = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_ROOM_REQUESTE });
+
+    const {
+      userLogin: { user },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
+
+    const res = await axios.get("/api/rooms/userRooms", config);
+
+    dispatch({
+      type: USER_ROOM_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: USER_ROOM_FAIL,
       payload:
         err.response && err.response.data.message
           ? err.response.data.message

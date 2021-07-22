@@ -3,20 +3,27 @@ import { Link } from "react-router-dom";
 import InquiryList from "../components/InquiryList";
 import inquiryMsg from "../inquiryMsg";
 import Message from "../components/Message";
+import RoomList from "../components/RoomList";
 
 import { useSelector, useDispatch } from "react-redux";
 import { USER_UPDATE_RESET } from "../constants/userConstants";
+import { getUserRoom } from "../actions/roomActions";
 
 const UserDashboardScreen = () => {
   const dispatch = useDispatch();
   const updateUserProfile = useSelector((state) => state.updateUserProfile);
   const { loading, success } = updateUserProfile;
 
+  const userRoom = useSelector((state) => state.userRoom);
+  const { rooms } = userRoom;
+  console.log(rooms);
+
   useEffect(() => {
+    dispatch(getUserRoom());
     setTimeout(() => {
       dispatch({ type: USER_UPDATE_RESET });
     }, 5000);
-  }, []);
+  }, [dispatch]);
   return (
     <div className="dashboard">
       <div className="showcase">
@@ -52,6 +59,26 @@ const UserDashboardScreen = () => {
                 </Link>
               </div>
             </div>
+          </div>
+
+          <div className="room-listing">
+            <h2>Room Details</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>ROOM_ID</th>
+                  <th>OWNER_NAME</th>
+                  <th>PRICE</th>
+                  <th>CREATED_AT</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {rooms &&
+                  rooms.map((room) => <RoomList key={room._id} room={room} />)}
+              </tbody>
+            </table>
           </div>
 
           <div className="room-listing" style={{ overflowX: "auto" }}>

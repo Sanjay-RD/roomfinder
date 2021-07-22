@@ -16,6 +16,9 @@ import {
   ROOM_UPDATE_SUCCESS,
   ROOM_UPDATE_FAIL,
   ROOM_UPDATE_RESET,
+  USER_ROOM_REQUESTE,
+  USER_ROOM_SUCCESS,
+  USER_ROOM_FAIL,
 } from "../constants/roomConstants";
 
 export const roomListReducer = (state = { rooms: [] }, action) => {
@@ -126,6 +129,27 @@ export const roomUpdateReducer = (state = {}, action) => {
       };
     case ROOM_UPDATE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const userRoomReducer = (state = { rooms: [] }, action) => {
+  switch (action.type) {
+    case USER_ROOM_REQUESTE:
+      return {
+        loading: true,
+      };
+    case USER_ROOM_SUCCESS:
+      return {
+        loading: false,
+        rooms: action.payload,
+      };
+    case USER_ROOM_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

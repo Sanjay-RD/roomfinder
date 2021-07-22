@@ -8,6 +8,7 @@ import {
   roomDetailsReducer,
   roomListReducer,
   roomUpdateReducer,
+  userRoomReducer,
 } from "./reducers/roomReducers";
 import {
   userLoginReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   updateUserProfile: updateUserProfileReducer,
   roomDelete: roomDeleteReducer,
   roomUpdate: roomUpdateReducer,
+  userRoom: userRoomReducer,
 });
 
 const userFromStorage = localStorage.getItem("user")

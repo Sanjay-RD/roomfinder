@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import rooms from "../rooms";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -14,9 +13,9 @@ import Inquiry from "../components/Inquiry";
 import Messagebox from "../components/Messagebox";
 
 import { useDispatch, useSelector } from "react-redux";
-import { roomDetails } from "../actions/roomActions";
+import { roomDetails, deleteRoom, getUserRoom } from "../actions/roomActions";
 
-const RoomScreen = ({ match }) => {
+const RoomScreen = ({ match, history }) => {
   const [click, setClick] = useState(false);
   const [image, setImage] = useState("");
   const [inquiry, setInquiry] = useState(false);
@@ -27,10 +26,25 @@ const RoomScreen = ({ match }) => {
   const roomSelector = useSelector((state) => state.roomDetails);
   const { room, loading, error } = roomSelector;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { user } = userLogin;
+
+  const userRoom = useSelector((state) => state.userRoom);
+  const { rooms: userRooms } = userRoom;
+
   const roomID = match.params.id;
+  console.log(typeof roomID);
   useEffect(() => {
     dispatch(roomDetails(roomID));
+    dispatch(getUserRoom());
   }, [dispatch]);
+
+  const deleteHandler = (roomId) => {
+    if (window.confirm("Are you Sure")) {
+      dispatch(deleteRoom(roomId));
+      history.push("/");
+    }
+  };
 
   const onClick = (e) => {
     // console.log(e.target.currentSrc);
@@ -49,9 +63,6 @@ const RoomScreen = ({ match }) => {
   const onCloseInquiry = () => {
     setInquiry(false);
   };
-  const handleClick = () => {
-    setClosemessage(true);
-  };
 
   const onCloseMessage = () => {
     setClosemessage(false);
@@ -64,7 +75,7 @@ const RoomScreen = ({ match }) => {
     room.image4 !== "" && room.image4,
     room.image5 !== "" && room.image5,
   ];
-  console.log(images);
+
   return (
     <>
       {loading ? (
@@ -73,16 +84,53 @@ const RoomScreen = ({ match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <div style={{ marginBottom: "20px" }}>
-          <Link to="/">
-            <button className="btn">
-              <i className="fas fa-arrow-left"></i> Back
-            </button>
-          </Link>
-          {admin && (
-            <button className="more-button delete" onClick={handleClick}>
-              Delete Post
-            </button>
-          )}
+          <div className="roomscreen-header-flex">
+            <Link to="/">
+              <button className="btn">
+                <i className="fas fa-arrow-left"></i> Back
+              </button>
+            </Link>
+            {user && user.isAdmin ? (
+              <div class="roomscreen-edit-delete">
+                <div className="view-listing">
+                  <Link to={`/edit/room/${room._id}`} className="flex-2">
+                    <i className="fas fa-edit"></i> Edit
+                  </Link>
+                </div>
+                <div className="view-listing danger">
+                  <Link
+                    to="#"
+                    className="flex-2"
+                    onClick={() => deleteHandler(room._id)}
+                  >
+                    <i className="fas fa-trash"></i> Delete
+                  </Link>
+                </div>
+              </div>
+            ) : null}
+            {userRooms &&
+              userRooms.map(
+                (room) =>
+                  room._id === roomID && (
+                    <div class="roomscreen-edit-delete">
+                      <div className="view-listing">
+                        <Link to={`/edit/room/${room._id}`} className="flex-2">
+                          <i className="fas fa-edit"></i> Edit
+                        </Link>
+                      </div>
+                      <div className="view-listing danger">
+                        <Link
+                          to="#"
+                          className="flex-2"
+                          onClick={() => deleteHandler(room._id)}
+                        >
+                          <i className="fas fa-trash"></i> Delete
+                        </Link>
+                      </div>
+                    </div>
+                  )
+              )}
+          </div>
           {closemessage && <Messagebox onClose={onCloseMessage} />}
           <div className="RoomScreen-grid">
             <div>

@@ -392,6 +392,16 @@ footer a {
   /* grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); */
   grid-gap: 1rem;
 }
+.roomscreen-header-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.roomscreen-edit-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
 
 /* .mainImage-container { */
 /* width: 510px; */
