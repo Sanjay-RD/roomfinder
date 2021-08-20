@@ -33,7 +33,6 @@ const RoomScreen = ({ match, history }) => {
   const { rooms: userRooms } = userRoom;
 
   const roomID = match.params.id;
-  console.log(typeof roomID);
   useEffect(() => {
     dispatch(roomDetails(roomID));
     dispatch(getUserRoom());

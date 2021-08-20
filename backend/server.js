@@ -27,6 +27,15 @@ const __dirname = path.resolve();
 // __dirname is use to access the current directory file which is not available if we are using ES-Module, it's only available using common js so to mimic this we use path.resolve()
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
+// serve static assets in production
+if(process.env.NODE_ENV === 'production'){
+  // set static folder
+  app.use(express.static('frontend/build'))
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+  })
+}
+
 // custome error handler
 app.use(notFound);
 app.use(errorHandler);
