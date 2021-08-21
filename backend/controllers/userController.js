@@ -16,6 +16,7 @@ const authUser = asyncHandler(async (req, res) => {
       userName: user.userName,
       email: user.email,
       phone: user.phone,
+      profileImg: user.profileImg,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
@@ -38,6 +39,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       userName: user.userName,
       email: user.email,
       phone: user.phone,
+      profileImg: user.profileImg,
       isAdmin: user.isAdmin,
     });
   } else {
@@ -50,7 +52,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route   POST api/user
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { firstName, lastName, userName, email, phone, password } = req.body;
+  const { firstName, lastName, userName, email, phone, profileImg, password } =
+    req.body;
   const userExits = await User.findOne({ email });
   if (userExits) {
     res.status(400);
@@ -63,6 +66,7 @@ const registerUser = asyncHandler(async (req, res) => {
     userName,
     email,
     phone,
+    profileImg,
     password,
   });
 
@@ -74,6 +78,7 @@ const registerUser = asyncHandler(async (req, res) => {
       userName: user.userName,
       email: user.email,
       phone: user.phone,
+      profileImg: user.profileImg,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
@@ -97,6 +102,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
+    if (req.body.profileImg) {
+      user.profileImg = req.body.profileImg;
+    }
 
     const updateUser = await user.save();
     res.status(201).json({
@@ -106,6 +114,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       userName: updateUser.userName,
       email: updateUser.email,
       phone: updateUser.phone,
+      profileImg: updateUser.profileImg,
       isAdmin: updateUser.isAdmin,
       token: generateToken(updateUser._id),
     });

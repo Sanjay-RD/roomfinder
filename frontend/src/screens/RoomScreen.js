@@ -175,7 +175,16 @@ const RoomScreen = ({ match, history }) => {
             <div className="seller-details">
               <div className="seller-container">
                 <div className="seller-image">
-                  <img src={profile} alt="" />
+                  {room.user && room.user.profileImg ? (
+                    <img
+                      src={room.user.profileImg}
+                      alt="profile"
+                      className="user-profile-img"
+                    />
+                  ) : (
+                    <img src="/images/profile.png" alt="profile" />
+                  )}
+                  {/* <img src={profile} alt="" /> */}
                   <h4 style={{ textAlign: "center" }}>Owner Details</h4>
                 </div>
                 <div className="seller-info">

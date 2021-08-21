@@ -49,7 +49,7 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const register =
-  (firstName, lastName, userName, email, phone, password) =>
+  (firstName, lastName, userName, email, phone, profileImg, password) =>
   async (dispatch) => {
     try {
       dispatch({ type: USER_REGISTER_REQUESTE });
@@ -62,7 +62,7 @@ export const register =
 
       const res = await axios.post(
         "/api/user",
-        { firstName, lastName, userName, email, phone, password },
+        { firstName, lastName, userName, email, phone, profileImg, password },
         config
       );
 
@@ -134,6 +134,7 @@ export const updateUserProfile = (userData) => async (dispatch, getState) => {
     };
 
     const res = await axios.put("/api/user/profile", userData, config);
+    console.log(res);
 
     dispatch({
       type: USER_UPDATE_SUCCESS,

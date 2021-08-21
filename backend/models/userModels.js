@@ -24,6 +24,9 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    profileImg: {
+      type: String,
+    },
     password: {
       type: String,
       required: true,
